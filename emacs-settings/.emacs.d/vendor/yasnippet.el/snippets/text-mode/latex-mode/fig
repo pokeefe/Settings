@@ -1,0 +1,8 @@
+\begin{figure}[!h]
+   \centering
+   \includegraphics[width=.8\textwidth]{$1.${2:eps}} 
+   \caption{${3:Caption}}
+   \label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3)/g}}}
+\end{figure}
+
+$0
