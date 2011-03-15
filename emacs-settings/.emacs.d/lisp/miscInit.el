@@ -51,6 +51,8 @@
         ido-use-filename-at-point nil
         ido-max-prospects 10))
 
+(setq ido-file-extensions-order '(".org" ".tex" ".m" ".txt"))
+
 (set-default 'indent-tabs-mode nil)
 (set-default 'indicate-empty-lines t)
 (set-default 'imenu-auto-rescan t)
@@ -189,6 +191,7 @@
 (server-start)
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
+(setq vc-follow-symlinks nil)
 
 (require 'line-num)
 
