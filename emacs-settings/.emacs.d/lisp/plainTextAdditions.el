@@ -7,10 +7,10 @@
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
-(defun refresh-file ()
-  (interactive)
-  (revert-buffer t t t))
-(global-set-key [f5] 'refresh-file)
+;; (defun refresh-file ()
+;;   (interactive)
+;;   (revert-buffer t t t))
+;; (global-set-key [f5] 'refresh-file)
 
 (defun duplicate-line ()
   (interactive)

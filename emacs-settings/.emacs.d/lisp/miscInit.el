@@ -19,13 +19,15 @@
       truncate-partial-width-windows nil
       uniquify-buffer-name-style 'forward
       whitespace-style '(trailing lines space-before-tab
-                                  indentation space-after-tab)
+                                  indentavindetion space-after-tab)
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
       oddmuse-directory (concat dotfiles-dir "oddmuse")
       save-place-file (concat dotfiles-dir "places"))
 
 (setq browse-url-browser-function 'browse-default-macosx-browser)
+
+(delete-selection-mode t)
 
 ;; Transparently open compressed files
 (auto-compression-mode t)
@@ -53,7 +55,19 @@
 
 (setq ido-file-extensions-order '(".org" ".tex" ".m" ".txt"))
 
+(setq ns-pop-up-frames nil)
+
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+(setq message-log-max 500)
+
+
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
 (set-default 'indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 (set-default 'indicate-empty-lines t)
 (set-default 'imenu-auto-rescan t)
 
@@ -124,8 +138,7 @@
 (setq backup-directory-alist (list (cons "." backup-dir)))
 
 ;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setq default-tab-width 2)
-(setq tab-width 2)
+
 
 
 (defun byte-recompile-home ()

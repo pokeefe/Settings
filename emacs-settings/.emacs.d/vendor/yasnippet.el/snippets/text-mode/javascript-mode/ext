@@ -1,5 +1,0 @@
-#name: jQuery extend
-# --
-$.extend(true, app, {
-  $0
-})

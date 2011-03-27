@@ -1,2 +1,6 @@
-\subsubsection{${1:subsubsection name}}
-\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3)/g}}}
+#contributor : Pat OKeefe
+#name : \subsubsection*{}
+# --
+\subsubsection*{${1:subsubsection name}}
+\label{subs:${1:$(downcase (replace-regexp-in-string "[ ()?!+&]?" "" text))}}
+$0

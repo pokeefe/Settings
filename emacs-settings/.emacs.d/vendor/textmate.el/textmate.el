@@ -193,6 +193,7 @@ function."
   "Inserts an indented newline after the current line and moves the point to it."
   (interactive)
   (end-of-line)
+  (if (eq major-mode 'matlab-mode) (insert ";"))
   (newline-and-indent))
 
 (defun textmate-select-line ()

@@ -7,19 +7,10 @@
 \usepackage{amssymb}
 \usepackage{epstopdf}
 \usepackage{subfig}
-\usepackage[framed,numbered]{mcode}
+\usepackage{extarrows}
 \usepackage{minted}
 \usemintedstyle{vs}
-%\usepackage{listings}
-\lstset{ %
-basicstyle=\tiny,
-stepnumber = 2,
-frame = single,
-tabsize = 3,
-captionpos = b,
-breaklines = true,
-breakatwhitespace=false
-}
+
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \title{${1:Title}}
@@ -30,11 +21,6 @@ breakatwhitespace=false
 
 $0
 
-% {\small \inputminted[linenos,numbersep=5pt,frame=lines,framesep=2mm,fontfamily=tt]{matlab}{../problem6.m}}
-% \lstinputlisting[language=Matlab]{../imageRectification.m}
-
-% \bibliographystyle{plain}
-% \bibliography{/Users/pat_okeefe/Dropbox/Self/BibTex_Bib/library.bib}
 
 
 \end{document}

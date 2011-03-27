@@ -62,13 +62,27 @@
   ;;(if (functionp 'idle-highlight) (idle-highlight))
   )
 
+(defun my-delete-leading-whitespace (start end)
+          "Delete whitespace at the beginning of each line in region."
+          (interactive "*r")
+          (save-excursion
+            (if (not (bolp)) (forward-line 1))
+            (delete-whitespace-rectangle (point) end nil)))
+
+
+(defun convert-matrx-to-latex-matrix (start end)
+  "thisandthat."
+  (interactive "*r")
+  (my-delete-leading-whitespace (start end)))
+
+
 (defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
 
-(defun indent-buffer ()
-  (interactive)
-  (indent-region (point-min) (point-max)))
+;; (defun indent-buffer ()
+;;   (interactive)
+;;   (indent-region (point-min) (point-max)))
 
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."

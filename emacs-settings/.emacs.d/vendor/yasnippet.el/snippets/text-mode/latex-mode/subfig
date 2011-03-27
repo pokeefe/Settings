@@ -1,0 +1,17 @@
+#contributor : Pat O'Keefe
+#name : insert floating figures
+# --
+\begin{figure}[!h]
+  \begin{center}
+    \subfigure[${1:SUBCAPTION1}] {
+      \includegraphics[scale=0.5]{${2:PIC1}.${3:eps}}
+      \label{fig:$2}}
+    \subfigure[${4:SUBCAPTION2}] {
+      \includegraphics[scale=0.5]{${5:PIC2}.$3}
+      \label{fig:$5}}
+    \caption{${6:FIGCAPTION}}
+    \label{${7:FIGLABEL}}
+  \end{center}
+\end{figure}
+
+$0
