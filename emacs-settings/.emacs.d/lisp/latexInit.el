@@ -11,9 +11,6 @@
 (load "preview-latex.el" nil t t)
 (setq preview-auto-cache-preamble nil)
 
-;; Might not be the case on Linux!
-;;(setq exec-path (append exec-path '("/opt/local/bin/gs")))
-
 ;; LaTeX: Enable flymake for texlive distribution of LaTeX
 (defun flymake-get-tex-args (file-name)
   (list "pdflatex" (list "-shell-escape" "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
@@ -21,12 +18,12 @@
 
 ;; apply LaTeX hooks (spellcheck, etc.)
 (add-hook 'LaTeX-mode-hook (lambda ()
-			     (flyspell-mode)
-			     (outline-minor-mode)
-			     (auto-fill-mode)
-                (setq latex-mode-map LaTeX-mode-map) 
-                (yas/reload-all) 
-           (flymake-mode)))
+                             (flyspell-mode)
+                             (outline-minor-mode)
+                             (auto-fill-mode)
+                             (setq latex-mode-map LaTeX-mode-map)
+                             (yas/reload-all)
+                             (flymake-mode)))
 
 
 ;; Autopair functionality in LaTeX mode
@@ -43,7 +40,7 @@
 ;;                    (getf autopair-extra-pairs :everywhere))))
 
 
-;; assist syncTeX			
+;; assist syncTeX
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (setq TeX-source-correlate-method 'synctex)
 
@@ -55,23 +52,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (when (string-equal system-type "darwin")
-    ;; use Skim to open PDFs
-    (add-hook 'LaTeX-mode-hook
-         (lambda()
-           (add-to-list 'TeX-expand-list
-                '("%q" skim-make-url))))
+  ;; use Skim to open PDFs
+  (add-hook 'LaTeX-mode-hook
+            (lambda()
+              (add-to-list 'TeX-expand-list
+                           '("%q" skim-make-url))))
 
-    (defun skim-make-url () (concat
-           (TeX-current-line)
-           " "
-           (expand-file-name (funcall file (TeX-output-extension) t)
-               (file-name-directory (TeX-master-file)))
-           " "
-           (buffer-file-name)))
+  (defun skim-make-url () (concat
+                           (TeX-current-line)
+                           " "
+                           (expand-file-name (funcall file (TeX-output-extension) t)
+                                             (file-name-directory (TeX-master-file)))
+                           " "
+                           (buffer-file-name)))
 
-    (setq TeX-view-program-list
-         '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %q")))
+  (setq TeX-view-program-list
+        '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %q")))
 
-    (setq TeX-view-program-selection '((output-pdf "Skim"))))
+  (setq TeX-view-program-selection '((output-pdf "Skim"))))
 
 (provide 'latexInit)

@@ -62,6 +62,9 @@
 (require 'autopair)
 (autopair-global-mode)
 
+;; Unlike linum, this places current line and column info right above minibuffer
+(require 'line-num)
+
 ;; Snippets
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
@@ -81,9 +84,9 @@
 (require 'whitespace)
 
 ;; need me some linum
-;(require 'linum)
-;(global-linum-mode 1)
-;(setq linum-format 'dynamic)
+(require 'linum)
+(global-linum-mode 1)
+(setq linum-format 'dynamic)
 
 ;; Make hippie expand work nicely with yasnippet
 (require 'hippie-exp)

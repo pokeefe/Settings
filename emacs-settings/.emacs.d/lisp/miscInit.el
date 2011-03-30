@@ -1,5 +1,8 @@
+
+
+
+
 ;;; Things that don't fit anywhere else
-;;
 
 
 (when window-system
@@ -18,24 +21,20 @@
       shift-select-mode nil
       truncate-partial-width-windows nil
       uniquify-buffer-name-style 'forward
-      whitespace-style '(trailing lines space-before-tab
+      whitespace-style '(trailing space-before-tab
                                   indentavindetion space-after-tab)
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
-      oddmuse-directory (concat dotfiles-dir "oddmuse")
-      save-place-file (concat dotfiles-dir "places"))
+      delete-selection-mode t
+      save-place-file (concat dotfiles-dir "vendor/places"))
 
-(setq browse-url-browser-function 'browse-default-macosx-browser)
-
-(delete-selection-mode t)
-
-;; Transparently open compressed files
+;; Transparently open compressed files. Damn cool.
 (auto-compression-mode t)
 
-;; Enable syntax highlighting for older Emacsen that have it off
-(global-font-lock-mode t)
+;; Open URLs in Google Chrome
+(setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
-;; Listen, I like the menu bar
+;; Listen, I like the menu bar...
 (menu-bar-mode 1)
 
 ;; Save a list of recent files visited.
@@ -44,7 +43,7 @@
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
 
-;; ido-mode is like magic pixie dust!
+;; ido-mode. Bless its heart.
 (when (> emacs-major-version 21)
   (ido-mode t)
   (setq ido-enable-prefix nil
@@ -55,7 +54,29 @@
 
 (setq ido-file-extensions-order '(".org" ".tex" ".m" ".txt"))
 
+;; So that new files opened in terminal do not spawn a new window
 (setq ns-pop-up-frames nil)
+
+;; Let's clean up the mode-line
+(when (require 'diminish nil 'noerror)
+  (eval-after-load "yasnippet"
+    '(diminish 'yas/minor-mode "Y"))
+  (eval-after-load "autopair"
+    '(diminish 'autopair-mode "ap"))
+  (eval-after-load "eldoc"
+    '(diminish 'eldoc-mode "ed"))
+  (eval-after-load "simple"
+    '(diminish 'auto-fill-function "AF"))
+  (eval-after-load "flyspell"
+    '(diminish 'flyspell-mode "fs"))
+  (eval-after-load "flymake"
+    '(diminish 'flymake-mode "fm"))
+  (eval-after-load "textmate"
+    '(diminish 'textmate-mode "m")))
+
+(add-hook 'emacs-lisp-mode-hook 
+  (lambda()
+    (setq mode-name "el"))) 
 
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
@@ -137,67 +158,6 @@
 (defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
 (setq backup-directory-alist (list (cons "." backup-dir)))
 
-;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-
-
-(defun byte-recompile-home ()
-  "Speed load time by compiling dotfiles"
-  (interactive)
-  (byte-recompile-directory "~/.emacs.d" 0))
-
-
-(defun tf-open-textmate ()
-  "Open the current file in TextMate."
-  (interactive)
-  (shell-command-to-string (concat "mate " buffer-file-name)))
-
-(defun tf-open-finder ()
-  "Open the current directory in the Finder."
-  (interactive)
-  (shell-command-to-string "open ."))
-
-
-(defun tf-open-plainview ()
-  "Open the current file's HTML counterpart in Plainview browser."
-  (interactive)
-  (shell-command-to-string (concat "open -a Plainview.app "
-                                   (file-name-directory buffer-file-name)
-                                   "html/"
-                                   (file-name-nondirectory buffer-file-name)
-                                   ".html")))
-
-
-;; Full screen toggle
-(defun toggle-fullscreen ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
-                                           nil
-                                         'fullboth)))
-(global-set-key (kbd "M-n") 'toggle-fullscreen)
-
-(defun recenter-to-top ()
-  "Take the current point and scroll it to within a
-   few lines of the top of the screen."
-  (interactive)
-  (recenter 3))
-(global-set-key [(control shift l)] 'recenter-to-top)
-
-(defun recenter-to-bottom ()
-  "Take the current point and scroll it to within a
-   few lines of the bottom of the screen."
-  (interactive)
-  (recenter -3))
-(global-set-key [(control meta l)] 'recenter-to-bottom)
-
-
-(defun kill-current-line ()
-  "Kill the current line, no matter where the cursor is."
-  (interactive)
-  (textmate-select-line) (kill-region (region-beginning) (region-end)))
-(global-set-key [(control shift k)] 'kill-current-line)
-
-
 
 (prefer-coding-system 'utf-8)
 
@@ -206,6 +166,11 @@
 
 (setq vc-follow-symlinks nil)
 
-(require 'line-num)
+;; Good number for MacBook Pro half screen width
+(setq default-fill-column 90)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 
 (provide 'miscInit)

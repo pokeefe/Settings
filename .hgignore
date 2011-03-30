@@ -7,3 +7,5 @@ auto-save-list/*
 places
 .DS_Store
 *org-clock-save.el
+*.orig
+*~
