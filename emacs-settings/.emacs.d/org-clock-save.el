@@ -1,2 +1,1 @@
-;; org-persist.el - po-macbook.local at <2011-03-27 Sun 15:17>
-(setq stored-clock-history '(("/Users/pat_okeefe/Dropbox/Org/gtd.org" . 451)))
+;; org-persist.el - pat-macbook-linux at <2011-03-30 Wed 17:57>

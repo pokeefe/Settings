@@ -6,3 +6,4 @@ auto-save-list/*
 *elc
 places
 .DS_Store
+*org-clock-save.el
