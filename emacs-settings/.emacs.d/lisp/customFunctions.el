@@ -32,15 +32,15 @@
                              (cond
                               ((and (listp symbol) (imenu--subalist-p symbol))
                                (addsymbols symbol))
-                              
+
                               ((listp symbol)
                                (setq name (car symbol))
                                (setq position (cdr symbol)))
-                              
+
                               ((stringp symbol)
                                (setq name symbol)
                                (setq position (get-text-property 1 'org-imenu-marker symbol))))
-                             
+
                              (unless (or (null position) (null name))
                                (add-to-list 'symbol-names name)
                                (add-to-list 'name-and-pos (cons name position))))))))
@@ -63,11 +63,11 @@
   )
 
 (defun my-delete-leading-whitespace (start end)
-          "Delete whitespace at the beginning of each line in region."
-          (interactive "*r")
-          (save-excursion
-            (if (not (bolp)) (forward-line 1))
-            (delete-whitespace-rectangle (point) end nil)))
+  "Delete whitespace at the beginning of each line in region."
+  (interactive "*r")
+  (save-excursion
+    (if (not (bolp)) (forward-line 1))
+    (delete-whitespace-rectangle (point) end nil)))
 
 
 (defun convert-matrx-to-latex-matrix (start end)
@@ -80,9 +80,9 @@
   (interactive)
   (untabify (point-min) (point-max)))
 
-;; (defun indent-buffer ()
-;;   (interactive)
-;;   (indent-region (point-min) (point-max)))
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
 
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
@@ -91,12 +91,35 @@
   (untabify-buffer)
   (delete-trailing-whitespace))
 
+;; (defun recentf-ido-find-file ()
+;;   "Find a recent file using ido."
+;;   (interactive)
+;;   (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
+;;     (when file
+;;       (find-file file))))
+
 (defun recentf-ido-find-file ()
-  "Find a recent file using ido."
+  "find a file in the recently open file using ido for completion"
   (interactive)
-  (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
-    (when file
-      (find-file file))))
+  (let* ((all-files recentf-list)
+         (file-assoc-list (mapcar (lambda (x) (cons (file-name-nondirectory x) x)) all-files))
+         (filename-list (remove-duplicates (mapcar 'car file-assoc-list) :test 'string=))
+         (ido-make-buffer-list-hook
+          (lambda ()
+            (setq ido-temp-list filename-list)))
+         (filename (ido-read-buffer "Find Recent File: "))
+         (result-list (delq nil (mapcar (lambda (x) (if (string= (car x) filename) (cdr x))) file-assoc-list)))
+         (result-length (length result-list)))
+    (find-file
+     (cond
+      ((= result-length 0) filename)
+      ((= result-length 1) (car result-list))
+      ( t
+        (let ( (ido-make-buffer-list-hook
+                (lambda ()
+                  (setq ido-temp-list result-list))))
+          (ido-read-buffer (format "%d matches:" result-length))))
+      ))))
 
 ;; Cosmetic
 
@@ -119,10 +142,27 @@
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
 
-(defun recompile-init ()
-  "Byte-compile all your dotfiles again."
+
+(defun recenter-to-top ()
+  "Take the current point and scroll it to within a
+   few lines of the top of the screen."
   (interactive)
-  (byte-recompile-directory dotfiles-dir 0))
+  (recenter 3))
+(global-set-key [(control shift l)] 'recenter-to-top)
+
+(defun recenter-to-bottom ()
+  "Take the current point and scroll it to within a
+   few lines of the bottom of the screen."
+  (interactive)
+  (recenter -3))
+(global-set-key [(control meta l)] 'recenter-to-bottom)
+
+
+(defun kill-current-line ()
+  "Kill the current line, no matter where the cursor is."
+  (interactive)
+  (textmate-select-line) (kill-region (region-beginning) (region-end)))
+(global-set-key [(control shift k)] 'kill-current-line)
 
 
 ;; TODO: fix this

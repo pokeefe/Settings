@@ -27,7 +27,9 @@
 ;; this makes control-tab function like org-mode
 (add-hook 'outline-minor-mode-hook
 	  (lambda ()
-	    (define-key outline-minor-mode-map [(control tab)] 'org-cycle)))
+	    (define-key outline-minor-mode-map [(control tab)] 'org-cycle)
+        (define-key outline-minor-mode-map [(shift tab)] 'org-global-cycle)))
+
 
 
 ;; Many GTD related variables
@@ -37,7 +39,7 @@
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
       org-agenda-start-on-weekday nil
-      org-deadline-warning-days 7
+      org-deadline-warning-days 3
       org-fast-tag-selection-single-key nil
       org-reverse-note-order nil
       org-tags-match-list-sublevels nil
@@ -48,6 +50,9 @@
 ;;org-agenda-sorting-strategy
 ;;org-agenda-todo-ignore-***
 
+;; Mobile org specific variables
+(setq org-mobile-inbox-for-pull (concat org-directory "/inbox.org"))
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
 
 ;; Enable clock persistence
 (setq org-clock-persist 'history)

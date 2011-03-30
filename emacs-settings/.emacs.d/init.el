@@ -62,6 +62,9 @@
 (require 'autopair)
 (autopair-global-mode)
 
+;; Unlike linum, this places current line and column info right above minibuffer
+(require 'line-num)
+
 ;; Snippets
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
