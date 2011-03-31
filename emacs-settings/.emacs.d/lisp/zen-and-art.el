@@ -29,7 +29,7 @@
      (font-lock-variable-name-face ((t (:foreground "#46657B"))))
      (font-lock-warning-face ((t (:bold t :foreground "Pink"))))
      (paren-face-match-light ((t (:background "#252323"))))
-     (highlight ((t (:background "darkolivegreen"))))
+     (highlight ((t (:background "#423D3D")))) ;;darkolivegreen
      (italic ((t (:italic t))))
      (modeline ((t (:background "#3F3B3B" :foreground "white"))))
      (modeline-buffer-id ((t (:background "#3F3B3B" :foreground
