@@ -20,7 +20,7 @@
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (flyspell-mode)
                              (outline-minor-mode)
-                             (auto-fill-mode)
+                             (turn-on-auto-fill)
                              (setq latex-mode-map LaTeX-mode-map)
                              (yas/reload-all)
                              (flymake-mode)))

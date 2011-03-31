@@ -28,9 +28,10 @@
 ;; Color Theme of Choice
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
-(load-file "~/.emacs.d/lisp/color-theme-cobalt.el")
-(color-theme-cobalt)
-
+;; (load-file "~/.emacs.d/lisp/color-theme-cobalt.el")
+;; (color-theme-cobalt)
+(load-file "~/.emacs.d/lisp/zen-and-art.el")
+(color-theme-zen-and-art)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Useful Packages
