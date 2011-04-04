@@ -13,7 +13,6 @@
 (global-set-key [(control o)] 'other-window)
 (global-set-key [(meta N)] 'cleanup-buffer)
 
-
 ;; Align your code in a pretty way.
 (global-set-key [(control x)(\\)] 'align-regexp)
 
@@ -44,21 +43,5 @@
 
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key [(control c)(e)] 'eval-and-replace)
-
-
-;; ;; This is a little hacky since VC doesn't support git add internally
-;; (eval-after-load 'vc
-;;   (define-key vc-prefix-map "i" '(lambda () (interactive)
-;;                                    (if (not (eq 'Git (vc-backend buffer-file-name)))
-;;                                        (vc-register)
-;;                                      (shell-command (format "git add %s" buffer-file-name))
-;;                                      (message "Staged changes.")))))
-
-;; ;; Activate occur easily inside isearch
-;; (define-key isearch-mode-map (kbd "C-o")
-;;   (lambda () (interactive)
-;;     (let ((case-fold-search isearch-case-fold-search))
-      ;; (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
-
 
 (provide 'keyboardBindings)

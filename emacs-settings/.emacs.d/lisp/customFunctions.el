@@ -17,8 +17,14 @@
     (cond ((search-forward "<?xml" nil t) (xml-mode))
           ((search-forward "<html" nil t) (html-mode)))))
 
-;; Buffer-related
 
+;; Activate occur easily inside isearch
+(define-key isearch-mode-map (kbd "C-o")
+  (lambda () (interactive)
+    (let ((case-fold-search isearch-case-fold-search))
+      (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
+
+;; Buffer-related
 (defun ido-imenu ()
   "Update the imenu index and then use ido to select a symbol to navigate to."
   (interactive)
@@ -69,7 +75,7 @@
     (if (not (bolp)) (forward-line 1))
     (delete-whitespace-rectangle (point) end nil)))
 
-
+;;TODO: work in progress
 (defun convert-matrx-to-latex-matrix (start end)
   "thisandthat."
   (interactive "*r")
@@ -91,12 +97,6 @@
   (untabify-buffer)
   (delete-trailing-whitespace))
 
-;; (defun recentf-ido-find-file ()
-;;   "Find a recent file using ido."
-;;   (interactive)
-;;   (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
-;;     (when file
-;;       (find-file file))))
 
 (defun recentf-ido-find-file ()
   "find a file in the recently open file using ido for completion"
@@ -122,7 +122,6 @@
       ))))
 
 ;; Cosmetic
-
 (defun pretty-lambdas ()
   (font-lock-add-keywords
    nil `(("(?\\(lambda\\>\\)"
@@ -131,7 +130,6 @@
                     nil))))))
 
 ;; Other
-
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
@@ -171,29 +169,5 @@
   (if arg
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-(defun lorem ()
-  "Insert a lorem ipsum."
-  (interactive)
-  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
-          "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
-          "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
-          "aliquip ex ea commodo consequat. Duis aute irure dolor in "
-          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
-          "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
-          "culpa qui officia deserunt mollit anim id est laborum."))
-
-(defun switch-or-start (function buffer)
-  "If the buffer is current, bury it, otherwise invoke the function."
-  (if (equal (buffer-name (current-buffer)) buffer)
-      (bury-buffer)
-    (if (get-buffer buffer)
-        (switch-to-buffer buffer)
-      (funcall function))))
-
-(defun pairing-bot ()
-  "If you can't pair program with a human, use this instead."
-  (interactive)
-  (message (if (y-or-n-p "Do you have a test for that? ") "Good." "Bad!")))
 
 (provide 'customFunctions)

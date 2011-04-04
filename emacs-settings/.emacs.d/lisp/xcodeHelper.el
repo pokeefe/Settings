@@ -1,9 +1,6 @@
 ;; XCODE
 (require 'objc-c-mode)
 
-;; (setq c-default-style "bsd"
-;;       c-basic-offset 2)
-
 (require 'cc-menus)
 
 (require 'xcode)

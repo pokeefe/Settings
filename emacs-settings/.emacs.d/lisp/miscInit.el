@@ -1,10 +1,4 @@
-
-
-
-
 ;;; Things that don't fit anywhere else
-
-
 (when window-system
   (mouse-wheel-mode t)
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -82,7 +76,6 @@
 
 (setq message-log-max 500)
 
-
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
@@ -91,6 +84,20 @@
 (setq indent-line-function 'insert-tab)
 (set-default 'indicate-empty-lines t)
 (set-default 'imenu-auto-rescan t)
+
+(prefer-coding-system 'utf-8)
+
+(server-start)
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
+(setq vc-follow-symlinks nil)
+
+;; Good number for MacBook Pro half screen width
+(setq default-fill-column 90)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (random t) ;; Seed the random-number generator
@@ -103,14 +110,7 @@
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
-;; nxhtml stuff
-(setq mumamo-chunk-coloring 'submode-colored
-      nxhtml-skip-welcome t
-      indent-region-mode t
-      rng-nxml-auto-validate-flag nil)
-
 ;; Associate modes with file extensions
-
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
@@ -122,17 +122,10 @@
 (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
 
 ;; Cosmetics
-
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
      (set-face-foreground 'diff-removed "red3")))
-
-(eval-after-load 'magit
-  '(progn
-     (set-face-foreground 'magit-diff-add "green3")
-     (set-face-foreground 'magit-diff-del "red3")))
-
 
 
 ;; Save backups in one place
@@ -157,20 +150,5 @@
 ;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
 (defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
 (setq backup-directory-alist (list (cons "." backup-dir)))
-
-
-(prefer-coding-system 'utf-8)
-
-(server-start)
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-
-(setq vc-follow-symlinks nil)
-
-;; Good number for MacBook Pro half screen width
-(setq default-fill-column 90)
-
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
-
 
 (provide 'miscInit)

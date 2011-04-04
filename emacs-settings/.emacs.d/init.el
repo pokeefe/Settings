@@ -42,15 +42,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; common lisp extensions
-(require 'cl) 
-	
+(require 'cl)
+
 ;; saves position in buffers between opens
-(require 'saveplace) 
-	
-;; better way to make buffer names unique	
+(require 'saveplace)
+
+;; better way to make buffer names unique
 (require 'uniquify)
 
-; color stuff
+                                        ; color stuff
 (require 'ansi-color)
 
 ;; a menu of recently opened files
@@ -74,7 +74,7 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
 (yas/initialize)
-(setq yas/indent-line 'fixed) 
+(setq yas/indent-line 'fixed)
 (setq yas/wrap-around-region 'cua) ;; This isn't really working!
 (yas/load-directory (concat dotfiles-dir "/vendor/yasnippet.el/snippets"))
 
@@ -95,7 +95,10 @@
 
 ;; Make hippie expand work nicely with yasnippet
 (require 'hippie-exp)
-(global-set-key [?\A- ] 'hippie-expand)
+(when (string-equal system-type "darwin")
+  (global-set-key [?\A- ] 'hippie-expand))
+(when (string-equal system-type "gnu/linux")
+  (global-set-key [?\s- ] 'hippie-expand))
 (setq hippie-expand-try-functions-list
       '(yas/hippie-try-expand
         try-expand-dabbrev
