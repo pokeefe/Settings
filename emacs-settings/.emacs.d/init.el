@@ -30,8 +30,12 @@
 (require 'color-theme)
 ;; (load-file "~/.emacs.d/lisp/color-theme-cobalt.el")
 ;; (color-theme-cobalt)
-(load-file "~/.emacs.d/lisp/zen-and-art.el")
-(color-theme-zen-and-art)
+;; (load-file "~/.emacs.d/lisp/zen-and-art.el")
+;; (color-theme-zen-and-art)
+;; (load-file "~/.emacs.d/lisp/color-theme-blackboard.el")
+;; (color-theme-blackboard)
+(load-file "~/.emacs.d/lisp/color-theme-tangotango.el")
+(color-theme-tangotango)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Useful Packages

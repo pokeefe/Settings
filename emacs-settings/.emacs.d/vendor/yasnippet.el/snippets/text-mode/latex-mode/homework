@@ -1,4 +1,4 @@
-\documentclass[11pt]{article} % (fold)
+\documentclass[11pt]{article}
 \usepackage[top=2.5 cm, bottom=2.5 cm, left=2.0 cm, right=2.0 cm]{geometry}
 \geometry{letterpaper}
 \usepackage[parfill]{parskip}
@@ -14,10 +14,10 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{\`convert #1 \`dirname #1\`/\`basename #1 .tif\`.png}
 
 \title{${1:Title}}
-\author{Patrick O'Keefe} % (end)
+\author{Patrick O'Keefe}
 
 \begin{document}
-\maketitle 
+\maketitle
 
 $0
 

@@ -9,3 +9,4 @@ places
 *org-clock-save.el
 *.orig
 *~
+*.org-id-locations

@@ -30,7 +30,8 @@
 	    (define-key outline-minor-mode-map [(control tab)] 'org-cycle)
         (define-key outline-minor-mode-map [(shift tab)] 'org-global-cycle)))
 
-
+;; Include diary in agenda
+(setq org-agenda-include-diary t)
 
 ;; Many GTD related variables
 (setq org-agenda-span '7
@@ -76,6 +77,8 @@
 (setq org-columns-default-format '"%38ITEM(Details) %TAGS(Context) %7TODO(To Do) %5Effort(Time){:} %6CLOCKSUM(Clock)")
 
 
+
+
 (setq org-agenda-custom-commands
 '(
 
@@ -98,6 +101,10 @@
                        (quote ((agenda time-up priority-down tag-up) )))
                       (org-deadline-warning-days 0)
                       ))))
+("I" "Import diary from iCal" agenda ""
+         ((org-agenda-mode-hook
+           (lambda ()
+             (org-mac-iCal)))))
 )
 )
 
@@ -112,6 +119,24 @@
   (find-file (concat org-directory "/inbox.org"))
 )
 (global-set-key (kbd "C-c i") 'inbox)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; LaTeX Mac OS X Specific Init
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(when (string-equal system-type "darwin")
+  (add-hook 'org-agenda-cleanup-fancy-diary-hook
+          (lambda ()
+            (goto-char (point-min))
+            (save-excursion
+              (while (re-search-forward "^[a-z]" nil t)
+                (goto-char (match-beginning 0))
+                (insert "0:00-24:00 ")))
+            (while (re-search-forward "^ [a-z]" nil t)
+              (goto-char (match-beginning 0))
+              (save-excursion
+                (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
+              (insert (match-string 0))))))
 
 (provide 'orgAdditions)
 
