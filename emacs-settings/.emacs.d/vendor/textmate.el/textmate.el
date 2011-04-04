@@ -194,6 +194,7 @@ function."
   (interactive)
   (end-of-line)
   (if (eq major-mode 'matlab-mode) (insert ";"))
+  (if (eq major-mode 'c++-mode) (insert ";"))
   (newline-and-indent))
 
 (defun textmate-select-line ()
