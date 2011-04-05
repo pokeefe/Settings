@@ -98,7 +98,7 @@
 (when (string-equal system-type "darwin")
   (global-set-key [?\A- ] 'hippie-expand))
 (when (string-equal system-type "gnu/linux")
-  (global-set-key [?\s- ] 'hippie-expand))
+  (global-set-key [?\A- ] 'hippie-expand))
 (setq hippie-expand-try-functions-list
       '(yas/hippie-try-expand
         try-expand-dabbrev
