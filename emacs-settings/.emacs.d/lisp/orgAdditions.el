@@ -26,9 +26,11 @@
 
 ;; this makes control-tab function like org-mode
 (add-hook 'outline-minor-mode-hook
-	  (lambda ()
-	    (define-key outline-minor-mode-map [(control tab)] 'org-cycle)
-        (define-key outline-minor-mode-map [(shift tab)] 'org-global-cycle)))
+          (lambda ()
+            (define-key outline-minor-mode-map [(control tab)] 'org-cycle)
+            (if (string-equal system-type "darwin")
+                (define-key outline-minor-mode-map [(shift tab)] 'org-global-cycle)
+              (define-key outline-minor-mode-map [(backtab)] 'org-global-cycle))))
 
 ;; Include diary in agenda
 (setq org-agenda-include-diary t)
@@ -80,13 +82,13 @@
 
 
 (setq org-agenda-custom-commands
-'(
+      '(
 
-("P" "Projects"   
-((tags "project")))
+        ("P" "Projects"
+         ((tags "project")))
 
-("H" "Office and Home Lists"
-     ((agenda)
+        ("H" "Office and Home Lists"
+         ((agenda)
           (tags-todo "@office")
           (tags-todo "@home")
           (tags-todo "computer")
@@ -94,30 +96,30 @@
           (tags-todo "homework")
           (tags-todo "grocery")))
 
-("D" "Daily Action List"
-     (
+        ("D" "Daily Action List"
+         (
           (agenda "" ((org-agenda-ndays 1)
                       (org-agenda-sorting-strategy
                        (quote ((agenda time-up priority-down tag-up) )))
                       (org-deadline-warning-days 0)
                       ))))
-("I" "Import diary from iCal" agenda ""
+        ("I" "Import diary from iCal" agenda ""
          ((org-agenda-mode-hook
            (lambda ()
              (org-mac-iCal)))))
-)
-)
+        )
+      )
 
 (defun gtd ()
-    (interactive)
-    (find-file (concat org-directory "/gtd.org"))
-)
+  (interactive)
+  (find-file (concat org-directory "/gtd.org"))
+  )
 (global-set-key (kbd "C-c g") 'gtd)
 
 (defun inbox()
   (interactive)
   (find-file (concat org-directory "/inbox.org"))
-)
+  )
 (global-set-key (kbd "C-c i") 'inbox)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -126,17 +128,17 @@
 
 (when (string-equal system-type "darwin")
   (add-hook 'org-agenda-cleanup-fancy-diary-hook
-          (lambda ()
-            (goto-char (point-min))
-            (save-excursion
-              (while (re-search-forward "^[a-z]" nil t)
-                (goto-char (match-beginning 0))
-                (insert "0:00-24:00 ")))
-            (while (re-search-forward "^ [a-z]" nil t)
-              (goto-char (match-beginning 0))
+            (lambda ()
+              (goto-char (point-min))
               (save-excursion
-                (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
-              (insert (match-string 0))))))
+                (while (re-search-forward "^[a-z]" nil t)
+                  (goto-char (match-beginning 0))
+                  (insert "0:00-24:00 ")))
+              (while (re-search-forward "^ [a-z]" nil t)
+                (goto-char (match-beginning 0))
+                (save-excursion
+                  (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
+                (insert (match-string 0))))))
 
 (provide 'orgAdditions)
 

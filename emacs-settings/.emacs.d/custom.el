@@ -20,7 +20,8 @@
 * %^{topic} %T 
 %i%?") ("f" "Todo with current file link" entry (file+headline "~/Dropbox/Org/inbox.org" "Inbox") "* TODO %?
     Added: %U
-    File: %A"))))
+    File: %A") ("s" "Someday" entry (file+headline "~/Dropbox/Org/someday.org" "Someday") "* TODO %?
+    Added: %U"))))
  '(org-hide-leading-stars t)
  '(org-odd-levels-only t)
  '(org-refile-targets (quote (("~/Dropbox/Org/gtd.org" :maxlevel . 1) ("~/Dropbox/Org/someday.org" :maxlevel . 2))))
