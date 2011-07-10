@@ -15,12 +15,14 @@
 (defun flymake-get-tex-args (file-name)
   (list "pdflatex" (list "-shell-escape" "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
 
+(require 'reftex)
 
 ;; apply LaTeX hooks (spellcheck, etc.)
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (flyspell-mode)
                              (outline-minor-mode)
                              (turn-on-auto-fill)
+                             (turn-on-reftex)
                              (setq latex-mode-map LaTeX-mode-map)
                              (yas/reload-all)
                              (flymake-mode)))

@@ -17,9 +17,6 @@
 ;; depending on context.
 (add-hook 'org-mode-hook
           (lambda()
-            (local-set-key [(control shift left)] 'previous-buffer)
-            (local-set-key [(control shift right)] 'next-buffer)
-            (local-set-key [(meta shift right)] 'ido-switch-buffer)
             (add-to-list 'minor-mode-overriding-map-alist (cons 'textmate-mode nil))
             (hl-line-mode t)
             ))

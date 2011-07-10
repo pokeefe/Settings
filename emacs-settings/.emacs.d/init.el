@@ -28,12 +28,6 @@
 ;; Color Theme of Choice
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
-;; (load-file "~/.emacs.d/lisp/color-theme-cobalt.el")
-;; (color-theme-cobalt)
-;; (load-file "~/.emacs.d/lisp/zen-and-art.el")
-;; (color-theme-zen-and-art)
-;; (load-file "~/.emacs.d/lisp/color-theme-blackboard.el")
-;; (color-theme-blackboard)
 (load-file "~/.emacs.d/lisp/color-theme-tangotango.el")
 (color-theme-tangotango)
 
@@ -55,6 +49,8 @@
 
 ;; a menu of recently opened files
 (require 'recentf)
+;; (setq recentf-auto-cleanup 'never) ;; This fixes a bug that causes Tramp to block emacs at very inopportune times.
+;; (recentf-mode 1)
 
 ;; Allows you to find unbound key combinations
 (require 'unbound)
@@ -105,6 +101,17 @@
         try-expand-dabbrev-visible
         try-expand-dabbrev-all-buffers
         ))
+
+;; Markdown mode
+(autoload 'markdown-mode "markdown-mode.el"
+   "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+;; Lua mode
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
