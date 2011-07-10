@@ -4,7 +4,7 @@ loaddefs.el*
 backups/*
 auto-save-list/*
 *elc
-places
+*/vendor/places
 .DS_Store
 *org-clock-save.el
 *.orig
