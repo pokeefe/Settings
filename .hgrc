@@ -1,0 +1,11 @@
+[ui]
+username = Pat O'Keefe <patokeefe1@gmail.com>
+
+[extensions]
+fetch =
+hgext.graphlog =
+hgext.extdiff =
+
+[merge-tools]
+filemerge.executable = /usr/bin/opendiff-w
+filemerge.args = $local $other -ancestor $base -merge $output

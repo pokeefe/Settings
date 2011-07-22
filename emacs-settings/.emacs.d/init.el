@@ -114,6 +114,15 @@
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 
+;; Calendar Framework
+;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/calfw"))
+;; (require 'calfw)
+;; (require 'calfw-ical)
+;; (cfw:open-ical-calendar "https://www.google.com/calendar/ical/patokeefe1%40gmail.com/private-e8052c409c33af06134a40b7ad824f78/basic.ics")
+;; (global-set-key [(control c) (control c)] 'cfw:open-ical-calendar)
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Custom Lisp Inits
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
