@@ -12,6 +12,7 @@
 ;; Benchmarking
 (defvar *emacs-load-start* (current-time))
 
+
 ;; Load path etc:
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
@@ -49,8 +50,8 @@
 
 ;; a menu of recently opened files
 (require 'recentf)
-;; (setq recentf-auto-cleanup 'never) ;; This fixes a bug that causes Tramp to block emacs at very inopportune times.
-;; (recentf-mode 1)
+(setq recentf-auto-cleanup 'never) ;; This fixes a bug that causes Tramp to block emacs at very inopportune times.
+(recentf-mode 1)
 
 ;; Allows you to find unbound key combinations
 (require 'unbound)

@@ -2,8 +2,12 @@ export PS1="[\t][\u@\h \W]$ "
 
 alias m="mate"
 
-alias p="python "
-export PYTHONSTARTUP=~/.pythonrc
+alias p="python"
+alias ip="ipython --pylab"
+alias ipq="ipython qtconsole --pylab"
+export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
+export PYTHONPATH=/Library/Python/2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH
 
 alias 556="cd ~/Dropbox/Winter2011/556"
 alias 564="cd ~/Dropbox/Winter2011/564"
@@ -13,6 +17,7 @@ alias o="open ."
 alias po="popd"
 alias pu="pushd"
 alias d="dirs -v"
+alias l="less "
 
 alias g="grep --color='auto' -n"
 alias ls='ls -G'
@@ -39,28 +44,11 @@ alias c='clear'
 
 alias emacs='open -a /Applications/Emacs.app '
 alias e=emacs
+alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n '
 
 export EDITOR='open -a /Applications/Emacs.app '
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient '
 export CVSEDITOR=e
 export SVN_EDITOR=e
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
-
-manp()
-{
-  man -t "${1}" | open -f -a Skim
-}
-
-catskim()
-{
-  cat "${1}" | enscript -p - | open -f -a Skim
-}
-
-#Color man pages
-# export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
-# export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
-# export LESS_TERMCAP_me=$'\E[0m'          # end mode
-# export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode                 
-# export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box                              
-# export LESS_TERMCAP_ue=$'\E[0m'          # end underline
-# export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
