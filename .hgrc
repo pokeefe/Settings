@@ -5,6 +5,7 @@ username = Pat O'Keefe <patokeefe1@gmail.com>
 fetch =
 hgext.graphlog =
 hgext.extdiff =
+color = 
 
 [merge-tools]
 filemerge.executable = /usr/bin/opendiff-w

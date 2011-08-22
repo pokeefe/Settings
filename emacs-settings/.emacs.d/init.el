@@ -67,6 +67,9 @@
 ;; Unlike linum, this places current line and column info right above minibuffer
 (require 'line-num)
 
+;; Let's get some real objective-c mode stuff going on here
+(require 'objc-c-mode)
+
 ;; Snippets
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
@@ -115,6 +118,9 @@
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 
+;; Paul says Dired is life changing. Let's try it
+(require 'dired+)
+
 ;; Calendar Framework
 ;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/calfw"))
 ;; (require 'calfw)
@@ -140,7 +146,7 @@
 (require 'flymake)
 (require 'latexInit)
 (require 'matlabInit)
-
+(require 'dired-mod)
 
 
 ;; Benchmarking
@@ -148,6 +154,14 @@
          (destructuring-bind (hi lo ms) (current-time)
            (- (+ hi lo) (+ (first *emacs-load-start*) (second
                                                        *emacs-load-start*)))))
+
+(open-filelist '("~/.emacs.d/init.el"
+                 "~/Dropbox/Org/gtd.org"))
+
+(dired (getenv "HOME"))
+(switch-to-buffer (user-login-name))
+(split-window-horizontally)
+(switch-to-buffer "gtd.org")
 
 
 (provide 'init)

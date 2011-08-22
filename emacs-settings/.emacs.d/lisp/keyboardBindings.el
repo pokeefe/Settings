@@ -44,8 +44,10 @@
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key [(control c)(e)] 'eval-and-replace)
 
-(add-hook 'c-mode-common-hook
-  (lambda() 
-    (local-set-key [(alt meta up)] 'ff-find-other-file)))
+(global-set-key [(control meta up)] 'ff-find-other-file)
+
+;; (add-hook 'c-mode-common-hook
+;;   (lambda() 
+;;     (local-set-key [(alt meta up)] 'ff-find-other-file)))
 
 (provide 'keyboardBindings)

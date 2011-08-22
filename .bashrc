@@ -8,6 +8,9 @@ alias ipq="ipython qtconsole --pylab"
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 export PYTHONPATH=/Library/Python/2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=/Users/patokeefe/Projects/OpenSource/marlib:$PYTHONPATH
+
+alias remotematlab='ssh -X pokeefe@login.engin.umich.edu'
 
 alias 556="cd ~/Dropbox/Winter2011/556"
 alias 564="cd ~/Dropbox/Winter2011/564"

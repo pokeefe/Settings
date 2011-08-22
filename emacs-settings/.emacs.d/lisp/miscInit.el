@@ -88,7 +88,11 @@
 (prefer-coding-system 'utf-8)
 
 (server-start)
+
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+(setq kill-buffer-query-functions 
+ (remove 'process-kill-buffer-query-function 
+         kill-buffer-query-functions)) 
 
 (setq vc-follow-symlinks nil)
 

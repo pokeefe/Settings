@@ -24,6 +24,31 @@
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
+
+;; Thanks Paul
+(defun open-filelist (fileList)
+  (while fileList
+    (let ((currentFile (car fileList)))
+      (if (file-exists-p currentFile)
+        (find-file (file-truename currentFile))))
+    (setq fileList (cdr fileList))))
+
+
+(defun kill-all-dired-buffers (exclude)
+  "Kill all dired buffers."
+  (interactive)
+  (save-excursion
+    (let((count 0))
+      (dolist(buffer (buffer-list))
+        (set-buffer buffer)
+        (when (and (equal major-mode 'dired-mode)
+                   (not (string-equal (buffer-name) exclude)))
+          (setq count (1+ count))
+          (kill-buffer buffer)))
+      (message "Killed %i dired buffer(s)." count ))))
+(global-set-key (kbd "C-S-k") (lambda () (interactive)
+                                (kill-all-dired-buffers (user-login-name))))
+
 ;; Buffer-related
 (defun ido-imenu ()
   "Update the imenu index and then use ido to select a symbol to navigate to."
