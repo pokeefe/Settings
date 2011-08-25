@@ -1,0 +1,9 @@
+# Specific ignores for the settings
+
+loaddefs.el*
+backups/*
+auto-save-list/*
+*elc
+*/vendor/places
+*org-clock-save.el
+*.org-id-locations
