@@ -4,3 +4,4 @@
 [core]
 	autocrlf = input
 	safecrlf = true
+	excludesfile = /Users/patokeefe/.gitignore_global
