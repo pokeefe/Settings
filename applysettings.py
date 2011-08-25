@@ -9,25 +9,34 @@ scriptDir           = sys.path[0]
 homeDir             = os.getenv('HOME')
 
 #These home dir files will be links to version controlled files
-bashrc              = os.path.join(homeDir, '.bashrc')
-bashProfile              = os.path.join(homeDir, '.bash_profile')
-emacsd              = os.path.join(homeDir, '.emacs.d')
-emacs               = os.path.join(homeDir, '.emacs')
-hgrc                = os.path.join(homeDir, '.hgrc')
+bashrc          = os.path.join(homeDir, '.bashrc')
+bashProfile     = os.path.join(homeDir, '.bash_profile')
+emacsd          = os.path.join(homeDir, '.emacs.d')
+emacs           = os.path.join(homeDir, '.emacs')
+hgrc            = os.path.join(homeDir, '.hgrc')
+gitconfig       = os.path.join(homeDir, '.gitconfig')
+ipythonconfig   = os.path.join(homeDir, '.ipython', 'profile_default', 'ipython_config.py')
+ipythonqtconfig = os.path.join(homeDir, '.ipython', 'profile_default', 'ipython_qtconsole_config.py')
 
 #These will be the actual version controlled files (the sources)
-bashrcSource        = os.path.join(scriptDir, '.bashrc')
-bashProfileSource        = os.path.join(scriptDir, '.bash_profile')
-emacsdSource        = os.path.join(scriptDir,  'emacs-settings', '.emacs.d')
-emacsSource          = os.path.join(scriptDir, 'emacs-settings', '.emacs')
-hgrcSource          = os.path.join(scriptDir, '.hgrc')
+bashrcSource          = os.path.join(scriptDir, '.bashrc')
+bashProfileSource     = os.path.join(scriptDir, '.bash_profile')
+emacsdSource          = os.path.join(scriptDir, 'emacs-settings', '.emacs.d')
+emacsSource           = os.path.join(scriptDir, 'emacs-settings', '.emacs')
+hgrcSource            = os.path.join(scriptDir, '.hgrc')
+gitconfigSource       = os.path.join(scriptDir, '.gitconfig')
+ipythonconfigSource   = os.path.join(scriptDir, 'python-settings', 'ipython_config.py')
+ipythonqtconfigSource = os.path.join(scriptDir, 'python-settings', 'ipython_qtconsole_config.py')
 
 #make a list of tupple pairs
 sourceToDestination = { bashrcSource : bashrc,
                         bashProfileSource : bashProfile,
                         emacsdSource : emacsd,
                         emacsSource : emacs,
-                        hgrcSource : hgrc}
+                        hgrcSource : hgrc,
+                        gitconfigSource : gitconfig,
+                        ipythonqtconfigSource : ipythonqtconfig,
+                        ipythonconfigSource : ipythonconfig}
 
 
 def createLink(src, dest):
