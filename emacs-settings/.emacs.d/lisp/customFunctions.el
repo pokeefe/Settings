@@ -25,6 +25,18 @@
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
 
+(defun set-frame-size-according-to-resolution ()
+  (interactive)
+  (if window-system
+  (progn
+    (add-to-list 'default-frame-alist 
+                 (cons 'height (/ (- (x-display-pixel-height) 0)
+                                  (frame-char-height))))
+
+    (add-to-list 'default-frame-alist 
+                 (cons 'width (/ (- (x-display-pixel-width) 0)
+                                  (frame-char-width)))))))
+
 ;; Thanks Paul
 (defun open-filelist (fileList)
   (while fileList

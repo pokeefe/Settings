@@ -148,6 +148,7 @@
 (require 'matlabInit)
 (require 'dired-mod)
 
+(set-frame-size-according-to-resolution)
 
 ;; Benchmarking
 (message "My .emacs loaded in %ds"

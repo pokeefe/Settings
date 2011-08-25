@@ -19,6 +19,7 @@
           (lambda()
             (add-to-list 'minor-mode-overriding-map-alist (cons 'textmate-mode nil))
             (hl-line-mode t)
+            (define-key org-mode-map [(control c)(control d)] 'mark-as-done-and-archive)
             ))
 
 ;; this makes control-tab function like org-mode
@@ -118,6 +119,12 @@
   (find-file (concat org-directory "/inbox.org"))
   )
 (global-set-key (kbd "C-c i") 'inbox)
+
+
+(defun mark-as-done-and-archive ()
+  (interactive)
+  (org-todo 'done)
+  (org-archive-subtree-default))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LaTeX Mac OS X Specific Init

@@ -6,7 +6,7 @@
 (setq dired-listing-switches "-alh")
 
 (setq dired-recursive-deletes 'always)
-(setq find-ls-option '("-exec ls -ldh {} \\;" . "-ldh"))
+(setq find-ls-option '("-exec ls -lh {} \\;" . "-lh"))
 
 (eval-after-load "dired"
   ;; ok to execute on '.' or '..'
