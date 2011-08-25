@@ -1,0 +1,6 @@
+[user]
+	name = Pat O'Keefe
+	email = patokeefe1@gmail.com
+[core]
+	autocrlf = input
+	safecrlf = true
