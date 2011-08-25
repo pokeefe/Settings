@@ -2,7 +2,7 @@
 
 loaddefs.el*
 backups/*
-*auto-save-list/*
+*/auto-save-list/*
 *elc
 */vendor/places
 *org-clock-save.el

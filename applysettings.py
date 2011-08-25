@@ -17,6 +17,7 @@ hgrc            = os.path.join(homeDir, '.hgrc')
 gitconfig       = os.path.join(homeDir, '.gitconfig')
 ipythonconfig   = os.path.join(homeDir, '.ipython', 'profile_default', 'ipython_config.py')
 ipythonqtconfig = os.path.join(homeDir, '.ipython', 'profile_default', 'ipython_qtconsole_config.py')
+gitignoreglobal = os.path.join(homeDir, '.gitignore_global')
 
 #These will be the actual version controlled files (the sources)
 bashrcSource          = os.path.join(scriptDir, '.bashrc')
@@ -27,6 +28,7 @@ hgrcSource            = os.path.join(scriptDir, '.hgrc')
 gitconfigSource       = os.path.join(scriptDir, '.gitconfig')
 ipythonconfigSource   = os.path.join(scriptDir, 'python-settings', 'ipython_config.py')
 ipythonqtconfigSource = os.path.join(scriptDir, 'python-settings', 'ipython_qtconsole_config.py')
+gitignoreglobalSource = os.path.join(scriptDir, '.gitignore_global')
 
 #make a list of tupple pairs
 sourceToDestination = { bashrcSource : bashrc,
@@ -36,7 +38,8 @@ sourceToDestination = { bashrcSource : bashrc,
                         hgrcSource : hgrc,
                         gitconfigSource : gitconfig,
                         ipythonqtconfigSource : ipythonqtconfig,
-                        ipythonconfigSource : ipythonconfig}
+                        ipythonconfigSource : ipythonconfig,
+                        gitignoreglobalSource : gitignoreglobal }
 
 
 def createLink(src, dest):
