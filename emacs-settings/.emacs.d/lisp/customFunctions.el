@@ -58,7 +58,7 @@
           (setq count (1+ count))
           (kill-buffer buffer)))
       (message "Killed %i dired buffer(s)." count ))))
-(global-set-key (kbd "C-S-k") (lambda () (interactive)
+(global-set-key [(meta shift k)] (lambda () (interactive)
                                 (kill-all-dired-buffers (user-login-name))))
 
 ;; Buffer-related

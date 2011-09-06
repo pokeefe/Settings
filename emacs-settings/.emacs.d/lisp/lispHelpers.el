@@ -16,11 +16,11 @@
               (if (file-exists-p (concat buffer-file-name "c"))
                   (delete-file (concat buffer-file-name "c"))))))
 
-(font-lock-add-keywords 'emacs-lisp-mode
-			'(("(\\|)" . 'paren-face)))
+;; (font-lock-add-keywords 'emacs-lisp-mode
+;; 			'(("(\\|)" . 'paren-face)))
 
-(font-lock-add-keywords 'scheme-mode
-			'(("(\\|)" . 'paren-face)))
+;; (font-lock-add-keywords 'scheme-mode
+;; 			'(("(\\|)" . 'paren-face)))
 
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
 (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)

@@ -50,8 +50,14 @@
 
 ;; a menu of recently opened files
 (require 'recentf)
+(setq recentf-save-file (concat dotfiles-dir "vendor/.recentf"))
 (setq recentf-auto-cleanup 'never) ;; This fixes a bug that causes Tramp to block emacs at very inopportune times.
 (recentf-mode 1)
+
+;; ido-mode is loaded elsewhere (I should organize all this soon), but I have seeing a
+;; .ido.last in my home director
+(setq ido-save-directory-list-file (concat dotfiles-dir "vendor/.ido.last"))
+
 
 ;; Allows you to find unbound key combinations
 (require 'unbound)
@@ -74,7 +80,7 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
 (yas/initialize)
-(setq yas/indent-line 'fixed)
+(setq yas/indent-line nil)
 (setq yas/wrap-around-region 'cua) ;; This isn't really working!
 (yas/load-directory (concat dotfiles-dir "/vendor/yasnippet.el/snippets"))
 
