@@ -12,8 +12,8 @@ export PYTHONPATH=/Users/patokeefe/Projects/OpenSource/marlib:$PYTHONPATH
 
 alias remotematlab='ssh -X pokeefe@login.engin.umich.edu'
 
-alias 556="cd ~/Dropbox/Winter2011/556"
-alias 564="cd ~/Dropbox/Winter2011/564"
+alias 492="cd ~/Dropbox/Fall2011/492"
+alias 568="cd ~/Dropbox/Fall2011/568"
 alias proj="cd ~/Projects/SMRT\ Labs/Sparrow/exerciseAlpha"
 
 alias o="open ."
@@ -55,3 +55,8 @@ export CVSEDITOR=e
 export SVN_EDITOR=e
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+
+# export CLASSPATH=/Users/patokeefe/Projects/OpenSource/eecs568/java/april.jar
+# export CLASSPATH=/Users/patokeefe/Projects/OpenSource/tutorial/java/eecs568.jar:$CLASSPATH
+export CLASSPATH=/Users/patokeefe/Dropbox/Fall2011/568/568-ps1-ps2/java/april.jar
+export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/OpenSource/eecs568/java/jni:$DYLD_LIBRARY_PATH

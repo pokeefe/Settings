@@ -37,6 +37,8 @@
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
 
+;; Who would want otherwise?
+(global-auto-revert-mode t)
 
 ;; ido-mode. Bless its heart.
 (when (> emacs-major-version 21)
