@@ -34,3 +34,8 @@ Icon?
 Thumbs.db
 *.orig
 *~
+
+# Less than fun Xcode stuff #
+#############################
+project.xcworkspace/
+xcuserdata/

@@ -29,6 +29,7 @@ alias hgs="hg status"
 alias hgf="hg fetch"
 alias hgc="hg ci"
 alias hgp="hg push"
+alias hgl="hg glog"
 
 alias gl="git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short"
 
@@ -56,7 +57,7 @@ export SVN_EDITOR=e
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
-# export CLASSPATH=/Users/patokeefe/Projects/OpenSource/eecs568/java/april.jar
-# export CLASSPATH=/Users/patokeefe/Projects/OpenSource/tutorial/java/eecs568.jar:$CLASSPATH
-export CLASSPATH=/Users/patokeefe/Dropbox/Fall2011/568/568-ps1-ps2/java/april.jar
-export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/OpenSource/eecs568/java/jni:$DYLD_LIBRARY_PATH
+
+export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/lcm.jar:$CLASSPATH
+export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/april.jar:$CLASSPATH
+export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/jni:$DYLD_LIBRARY_PATH

@@ -39,6 +39,9 @@
 ;; common lisp extensions
 (require 'cl)
 
+;; Smooth-scrolling mode. Thanks Paul.
+(require 'smooth-scrolling)
+
 ;; saves position in buffers between opens
 (require 'saveplace)
 
@@ -53,6 +56,10 @@
 (setq recentf-save-file (concat dotfiles-dir "vendor/.recentf"))
 (setq recentf-auto-cleanup 'never) ;; This fixes a bug that causes Tramp to block emacs at very inopportune times.
 (recentf-mode 1)
+
+(global-whitespace-mode)
+(global-hl-line-mode)
+(global-subword-mode t)
 
 ;; ido-mode is loaded elsewhere (I should organize all this soon), but I have seeing a
 ;; .ido.last in my home director
@@ -80,7 +87,7 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
 (yas/initialize)
-(setq yas/indent-line nil)
+(setq yas/indent-line 'auto)
 (setq yas/wrap-around-region 'cua) ;; This isn't really working!
 (yas/load-directory (concat dotfiles-dir "/vendor/yasnippet.el/snippets"))
 
@@ -165,9 +172,9 @@
 (open-filelist '("~/.emacs.d/init.el"
                  "~/Dropbox/Org/gtd.org"))
 
-(dired (getenv "HOME"))
-(switch-to-buffer (user-login-name))
-(split-window-horizontally)
+;; (dired (getenv "HOME"))
+;; (switch-to-buffer (user-login-name))
+;; (split-window-horizontally)
 (switch-to-buffer "gtd.org")
 
 

@@ -28,8 +28,9 @@
  '(org-hide-leading-stars t)
  '(org-odd-levels-only t)
  '(org-refile-targets (quote (("~/Dropbox/Org/gtd.org" :maxlevel . 1) ("~/Dropbox/Org/someday.org" :maxlevel . 2))))
- '(org-startup-folded (quote content))
+ '(org-startup-folded t)
  '(preview-gs-command "/usr/local/bin/gs")
+ '(reb-re-syntax (quote string))
  '(show-paren-mode t)
  '(user-mail-address "patokeefe1@gmail.com"))
 (custom-set-faces

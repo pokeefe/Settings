@@ -34,8 +34,8 @@
                                   (frame-char-height))))
 
     (add-to-list 'default-frame-alist 
-                 (cons 'width (/ (- (x-display-pixel-width) 0)
-                                  (frame-char-width)))))))
+                 (cons 'width (/ (/ (- (x-display-pixel-width) 0)
+                                  (frame-char-width)) 2))))))
 
 ;; Thanks Paul
 (defun open-filelist (fileList)
