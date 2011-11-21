@@ -1,8 +1,0 @@
-#contributor : Pat O'Keefe
-#name : Doxygen Comment
-# --
-/**
- * ${1:Name}
- *
- * ${2:Description}
- */

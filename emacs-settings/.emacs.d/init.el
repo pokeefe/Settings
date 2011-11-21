@@ -5,22 +5,46 @@
 ;; and brighter; it simply makes everything else vanish."
 ;; -Neal Stephenson, "In the Beginning was the Command Line"
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;  This should all be perfectly platform agnostic!
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; Benchmarking
 (defvar *emacs-load-start* (current-time))
 
+  (dolist (mode '(tool-bar-mode scroll-bar-mode))
+    (when (fboundp mode) (funcall mode -1)))
 
-;; Load path etc:
+
+
+;; Load path setup
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path dotfiles-dir)
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
 (add-to-list 'load-path (concat dotfiles-dir "/lisp"))
+(add-to-list 'load-path (concat dotfiles-dir "/elpa"))
 (setq autoload-file (concat dotfiles-dir "/lisp/loaddefs.el"))
-(setq package-user-dir (concat dotfiles-dir "elpa"))
+
+
+;;;;;;;;;;;;;
+;;; Package interface
+;;;;;;;;;;;;;
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;; Add in your own as you wish:
+(defvar my-packages '(smex ido-ubiquitous idle-highlight-mode autopair)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+
 
 ;; Keep customizations in a separate file
 (setq custom-file (concat dotfiles-dir "custom.el"))
@@ -29,15 +53,13 @@
 ;; Color Theme of Choice
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
-(load-file "~/.emacs.d/lisp/color-theme-tangotango.el")
+(load-file "~/.emacs.d/vendor/color-theme/themes/color-theme-tangotango.el")
 (color-theme-tangotango)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Useful Packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; common lisp extensions
-(require 'cl)
 
 ;; Smooth-scrolling mode. Thanks Paul.
 (require 'smooth-scrolling)
@@ -48,18 +70,20 @@
 ;; better way to make buffer names unique
 (require 'uniquify)
 
-                                        ; color stuff
+; color stuff
 (require 'ansi-color)
 
-;; a menu of recently opened files
-(require 'recentf)
-(setq recentf-save-file (concat dotfiles-dir "vendor/.recentf"))
-(setq recentf-auto-cleanup 'never) ;; This fixes a bug that causes Tramp to block emacs at very inopportune times.
-(recentf-mode 1)
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+  (smex-initialize)
+  (global-set-key (kbd "M-x") 'smex)
 
-(global-whitespace-mode)
+;; for OCD programmers like myself
+(require 'whitespace)
+
 (global-hl-line-mode)
+
 (global-subword-mode t)
+
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/nav"))
 (require 'nav)
 
@@ -68,19 +92,10 @@
 (setq ido-save-directory-list-file (concat dotfiles-dir "vendor/.ido.last"))
 
 
-;; Allows you to find unbound key combinations
-(require 'unbound)
-
-;; Load up ELPA, the package manager:
-(require 'package)
-(package-initialize)
-
 ;; Sweet autopairing
 (require 'autopair)
 (autopair-global-mode)
 
-;; Unlike linum, this places current line and column info right above minibuffer
-(require 'line-num)
 
 ;; Let's get some real objective-c mode stuff going on here
 (require 'objc-c-mode)
@@ -100,13 +115,15 @@
 (require 'textmateExtension)
 (textmate-mode)
 
-;; for OCD programmers like myself
-(require 'whitespace)
 
 ;; need me some linum
 (require 'linum)
 (global-linum-mode 1)
 (setq linum-format 'dynamic)
+
+;; Unlike linum, this places current line and column info right above minibuffer
+(require 'line-num)
+
 
 ;; Make hippie expand work nicely with yasnippet
 (require 'hippie-exp)
@@ -124,25 +141,8 @@
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode.el"
    "Major mode for editing Markdown files" t)
-(setq auto-mode-alist
-      (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
-;; Lua mode
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
-
-;; Paul says Dired is life changing. Let's try it
-(require 'dired+)
-
-;; Calendar Framework
-;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/calfw"))
-;; (require 'calfw)
-;; (require 'calfw-ical)
-;; (cfw:open-ical-calendar "https://www.google.com/calendar/ical/patokeefe1%40gmail.com/private-e8052c409c33af06134a40b7ad824f78/basic.ics")
-;; (global-set-key [(control c) (control c)] 'cfw:open-ical-calendar)
-
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -155,9 +155,7 @@
 (require 'plainTextAdditions)
 (require 'registers)
 (require 'lispHelpers)
-(require 'applescript)
 (require 'orgAdditions)
-(require 'xcodeHelper)
 (require 'flymake)
 (require 'latexInit)
 (require 'matlabInit)
@@ -174,10 +172,6 @@
 (open-filelist '("~/.emacs.d/init.el"
                  "~/Dropbox/Org/gtd.org"))
 
-;; (dired (getenv "HOME"))
-;; (switch-to-buffer (user-login-name))
-;; (split-window-horizontally)
 (switch-to-buffer "gtd.org")
-
 
 (provide 'init)

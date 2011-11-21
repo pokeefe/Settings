@@ -6,10 +6,15 @@
   (tool-bar-mode -1)
   (blink-cursor-mode -1))
 
+;; can't do it at launch or emacsclient won't always honor it
+(add-hook 'before-make-frame-hook 'turn-off-tool-bar)
+
+
 (setq visible-bell t
       font-lock-maximum-decoration t
       inhibit-startup-message t
       transient-mark-mode t
+      sentence-end-double-space nil
       color-theme-is-global t
       delete-by-moving-to-trash t
       shift-select-mode nil
@@ -20,7 +25,15 @@
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
       delete-selection-mode t
+      diff-switches "-u"
       save-place-file (concat dotfiles-dir "vendor/places"))
+
+
+
+;; Don't clutter up directories with files~
+(setq backup-directory-alist `(("." . ,(expand-file-name
+                                        (concat dotfiles-dir "backups")))))
+
 
 ;; Transparently open compressed files. Damn cool.
 (auto-compression-mode t)
@@ -32,7 +45,7 @@
 (menu-bar-mode 1)
 
 ;; Save a list of recent files visited.
-(recentf-mode 1)
+;; (recentf-mode 1)
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
@@ -40,47 +53,28 @@
 ;; Who would want otherwise?
 (global-auto-revert-mode t)
 
-;; ido-mode. Bless its heart.
-(when (> emacs-major-version 21)
-  (ido-mode t)
-  (setq ido-enable-prefix nil
-        ido-enable-flex-matching t
-        ido-create-new-buffer 'always
-        ido-use-filename-at-point nil
-        ido-max-prospects 10))
+;; Bless it's heart
+(ido-mode t)
+(ido-ubiquitous t)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-auto-merge-work-directories-length nil
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point nil
+      ido-use-virtual-buffers t
+      ido-handle-duplicate-virtual-buffers 2
+      ido-max-prospects 10)
+
 
 (setq ido-file-extensions-order '(".org" ".tex" ".m" ".txt"))
 
 ;; So that new files opened in terminal do not spawn a new window
 (setq ns-pop-up-frames nil)
 
-;; Let's clean up the mode-line
-(when (require 'diminish nil 'noerror)
-  (eval-after-load "yasnippet"
-    '(diminish 'yas/minor-mode "Y"))
-  (eval-after-load "autopair"
-    '(diminish 'autopair-mode "ap"))
-  (eval-after-load "eldoc"
-    '(diminish 'eldoc-mode "ed"))
-  (eval-after-load "simple"
-    '(diminish 'auto-fill-function "AF"))
-  (eval-after-load "flyspell"
-    '(diminish 'flyspell-mode "fs"))
-  (eval-after-load "flymake"
-    '(diminish 'flymake-mode "fm"))
-  (eval-after-load "textmate"
-    '(diminish 'textmate-mode "m")))
-
-(add-hook 'emacs-lisp-mode-hook 
-  (lambda()
-    (setq mode-name "el"))) 
-
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (setq message-log-max 500)
 
-(setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 (set-default 'indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -93,9 +87,9 @@
 (server-start)
 
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-(setq kill-buffer-query-functions 
- (remove 'process-kill-buffer-query-function 
-         kill-buffer-query-functions)) 
+(setq kill-buffer-query-functions
+      (remove 'process-kill-buffer-query-function
+              kill-buffer-query-functions))
 
 (setq vc-follow-symlinks nil)
 
@@ -113,9 +107,6 @@
 (delete 'try-expand-line hippie-expand-try-functions-list)
 (delete 'try-expand-list hippie-expand-try-functions-list)
 
-;; Don't clutter up directories with files~
-(setq backup-directory-alist `(("." . ,(expand-file-name
-                                        (concat dotfiles-dir "backups")))))
 
 ;; Associate modes with file extensions
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))

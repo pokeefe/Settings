@@ -8,8 +8,6 @@
 
 ;; Keyboard Overrides
 (define-key text-mode-map [(meta s)] 'save-buffer)
-(global-set-key [(control shift left)] 'previous-buffer)
-(global-set-key [(control shift right)] 'next-buffer)
 (global-set-key [(control o)] 'other-window)
 (global-set-key [(meta N)] 'cleanup-buffer)
 
@@ -32,10 +30,10 @@
 ;; File finding
 (global-set-key [(control x)(meta f)] 'ido-find-file-other-window)
 (global-set-key [(control x)(control meta f)] 'find-file-in-project)
-(global-set-key [(control x)(f)] 'recentf-ido-find-file)
+;; (global-set-key [(control x)(f)] 'recentf-ido-find-file)
 (global-set-key [(control x)(control b)] 'ibuffer)
 
-;; Start a regular shell 
+;; Start a regular shell
 (global-set-key [(control x)(control m)] 'shell)
 
 ;; Help should search more than just commands
@@ -44,10 +42,7 @@
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key [(control c)(e)] 'eval-and-replace)
 
+;; Find file counterparts (really useful)
 (global-set-key [(control meta up)] 'ff-find-other-file)
-
-;; (add-hook 'c-mode-common-hook
-;;   (lambda() 
-;;     (local-set-key [(alt meta up)] 'ff-find-other-file)))
 
 (provide 'keyboardBindings)
