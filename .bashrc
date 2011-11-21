@@ -58,6 +58,15 @@ export SVN_EDITOR=e
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 
-export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/lcm.jar:$CLASSPATH
-export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/april.jar:$CLASSPATH
-export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/jni:$DYLD_LIBRARY_PATH
+# export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/lcm.jar
+# export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/april.jar:$CLASSPATH
+
+# export CLASSPATH=$CLASSPATH:/usr/share/java/jogl.jar:/usr/share/java/gluegen-rt.jar:/usr/local/share/java/lcm.jar:$HOME/april/java/april.jar:./
+export CLASSPATH=/Users/patokeefe/Projects/OpenSource/april/java/april.jar:/usr/local/share/java/lcm.jar:./
+export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/OpenSource/april/lib
+alias java='java -ea -server'
+
+# export CLASSPATH=/Users/patokeefe/Downloads/eecs568/java/april.jar
+# export CLASSPATH=/Users/patokeefe/Downloads/eecs568/java/lcm.jar:$CLASSPATH
+# export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/jni:$DYLD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=/Users/patokeefe/Downloads/eecs568/java/jni:$DYLD_LIBRARY_PATH

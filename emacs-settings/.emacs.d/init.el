@@ -60,6 +60,8 @@
 (global-whitespace-mode)
 (global-hl-line-mode)
 (global-subword-mode t)
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/nav"))
+(require 'nav)
 
 ;; ido-mode is loaded elsewhere (I should organize all this soon), but I have seeing a
 ;; .ido.last in my home director

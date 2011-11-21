@@ -50,7 +50,6 @@
     (or (bolp) (insert "\n"))
     (setq pos (point))
     (insert txt)
-    ;; (goto-char pos)))
     (previous-line)
     (previous-line)))
 
