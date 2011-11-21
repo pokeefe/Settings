@@ -42,6 +42,7 @@ alias gx='gitx --all'
 alias gs='git status'
 alias got='git '
 alias get='git '
+alias gp='git push'
 
 alias ll='ls -lah'
 alias c='clear'
