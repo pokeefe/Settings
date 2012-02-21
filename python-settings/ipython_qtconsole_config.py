@@ -98,7 +98,7 @@ c = get_config()
 # c.IPKernelApp.log_level = 30
 
 # lines of code to run at IPython startup.
-# c.IPKernelApp.exec_lines = []
+c.IPKernelApp.exec_lines = ['print "AUTORELOAD ON"', '%autoreload 2']
 
 # The importstring for the OutStream factory
 # c.IPKernelApp.outstream_class = 'IPython.zmq.iostream.OutStream'
@@ -150,7 +150,7 @@ c = get_config()
 # c.IPKernelApp.exec_files = []
 
 # A list of dotted module names of IPython extensions to load.
-# c.IPKernelApp.extensions = []
+c.IPKernelApp.extensions = ['autoreload']
 
 # redirect stderr to the null device
 # c.IPKernelApp.no_stderr = False

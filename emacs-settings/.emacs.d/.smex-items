@@ -1,20 +1,71 @@
 
 ;; ----- smex-history -----
 (
- whitespace-mode
- customize-face
- package-list-packages
- global-hl-line-mode
- idle-highlight-mode
- cd
- 5x5
+ cua-mode
+ hippie-expand
+ highlight-changes-mode
+ customize-group
+ delete-whitespace-rectangle
+ size-indication-mode
+ query-replace
 )
 
 ;; ----- smex-data -----
 (
  (idle-highlight-mode . 1)
  (global-hl-line-mode . 1)
- (package-list-packages . 1)
+ (package-list-packages . 2)
  (customize-face . 1)
  (whitespace-mode . 1)
+ (recover-this-file . 1)
+ (yas/reload-all . 7)
+ (nav . 22)
+ (cua-mode . 50)
+ (c++-mode . 12)
+ (c-mode . 3)
+ (revert-buffer . 2)
+ (term . 1)
+ (nuke-all-buffers . 6)
+ (customize-group . 12)
+ (occur . 5)
+ (eshell . 1)
+ (orgtbl-insert-matrix . 3)
+ (orgtbl-insert-radio-table . 6)
+ (follow-mode . 3)
+ (reftex-mode . 2)
+ (maximize-window . 1)
+ (occur-mode . 2)
+ (java-mode . 1)
+ (vc-diff . 1)
+ (eval-buffer . 1)
+ (flyspell-mode . 1)
+ (visible-mode . 5)
+ (gnus . 1)
+ (calc . 1)
+ (animate-birthday-present . 1)
+ (hanoi . 3)
+ (life . 1)
+ (zone . 2)
+ (doctor . 1)
+ (orgtbl-mode . 5)
+ (backward-char . 7)
+ (customize . 2)
+ (customize-mode . 1)
+ (matlab-mode . 1)
+ (query-replace . 17)
+ (untabify . 1)
+ (upcase-word . 1)
+ (regexp-builder . 1)
+ (sudo-edit . 1)
+ (list-packages . 1)
+ (package-install . 2)
+ (er/expand-region . 6)
+ (expand-region-abbrevs . 1)
+ (insert-pair . 2)
+ (insert-kbd-macro . 2)
+ (textmate-next-line . 1)
+ (size-indication-mode . 2)
+ (delete-whitespace-rectangle . 1)
+ (hippie-expand . 11)
+ (highlight-changes-mode . 2)
 )

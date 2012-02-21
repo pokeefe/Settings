@@ -8,13 +8,17 @@ alias ipq="ipython qtconsole --pylab"
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 export PYTHONPATH=/Library/Python/2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH
-export PYTHONPATH=/Users/patokeefe/Projects/OpenSource/marlib:$PYTHONPATH
+# export PYTHONPATH=/Users/patokeefe/Projects/OpenSource/marlib:$PYTHONPATH
+# export PYTHONPATH=/Users/patokeefe/EsslResearch/CVTestSuite:$PYTHONPATH
+# export PYTHONPATH=/Users/patokeefe/EsslResearch/CVTestSuite/Utils:$PYTHONPATH
+# export PYTHONPATH=/Users/patokeefe/EsslResearch/CVTestSuite/PoseEstimation:$PYTHONPATH
+
+export OSG_DEPENDENCIES=/Libraries/osx-x64-release 
 
 alias remotematlab='ssh -X pokeefe@login.engin.umich.edu'
 
-alias 492="cd ~/Dropbox/Fall2011/492"
-alias 568="cd ~/Dropbox/Fall2011/568"
-alias proj="cd ~/Projects/SMRT\ Labs/Sparrow/exerciseAlpha"
+alias 545="cd ~/Insync/patokeefe1\@gmail.com/545 "
+alias os="cd ~/Projects/OpenSource "
 
 alias o="open ."
 alias po="popd"
@@ -47,6 +51,10 @@ alias gp='git push'
 alias ll='ls -lah'
 alias c='clear'
 
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+
 alias emacs='open -a /Applications/Emacs.app '
 alias e=emacs
 alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n '
@@ -59,12 +67,13 @@ export SVN_EDITOR=e
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 
-# export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/lcm.jar
-# export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/april.jar:$CLASSPATH
+export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/lcm.jar
+export CLASSPATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/april.jar:$CLASSPATH
+export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/lib
 
 # export CLASSPATH=$CLASSPATH:/usr/share/java/jogl.jar:/usr/share/java/gluegen-rt.jar:/usr/local/share/java/lcm.jar:$HOME/april/java/april.jar:./
-export CLASSPATH=/Users/patokeefe/Projects/OpenSource/april/java/april.jar:/usr/local/share/java/lcm.jar:./
-export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/OpenSource/april/lib
+# export CLASSPATH=/Users/patokeefe/Projects/OpenSource/april/java/april.jar:/usr/local/share/java/lcm.jar:./
+# export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/OpenSource/april/lib
 alias java='java -ea -server'
 
 # export CLASSPATH=/Users/patokeefe/Downloads/eecs568/java/april.jar

@@ -65,6 +65,13 @@
                      (cons 'width (/ (/ (- (x-display-pixel-width) 0)
                                         (frame-char-width)) 2))))))
 
+(defun nuke-all-buffers ()
+  "kill all buffers, leaving *scratch* only"
+  (interactive)
+  (mapcar (lambda (x) (kill-buffer x))
+          (buffer-list))
+  (delete-other-windows))
+
 ;; Thanks Paul
 (defun open-filelist (fileList)
   (while fileList

@@ -37,12 +37,29 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(smex ido-ubiquitous idle-highlight-mode autopair)
+(defvar my-packages '(smex ido-ubiquitous idle-highlight-mode autopair expand-region)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+
+(require 'expand-region)
+(global-set-key (kbd "C-@") 'er/expand-region)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(pending-delete-mode t)
+(setq next-line-add-newlines t)
+(setq scroll-preserve-screen-position t)
+
+
+
+
 
 
 
@@ -53,8 +70,10 @@
 ;; Color Theme of Choice
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
-(load-file "~/.emacs.d/vendor/color-theme/themes/color-theme-tangotango.el")
-(color-theme-tangotango)
+;; (load-file "~/.emacs.d/vendor/color-theme/themes/color-theme-tangotango.el")
+;; (color-theme-tangotango)
+(load-file "~/.emacs.d/vendor/color-theme/themes/naquadah-theme.el")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Useful Packages
@@ -110,10 +129,10 @@
 
 
 ;; Sweet textmate mode
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/textmate.el"))
-(require 'textmate)
-(require 'textmateExtension)
-(textmate-mode)
+;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/textmate.el"))
+;; (require 'textmate)
+;; (require 'textmateExtension)
+;; (textmate-mode)
 
 
 ;; need me some linum

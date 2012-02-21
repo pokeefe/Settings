@@ -75,6 +75,8 @@
 
 (setq message-log-max 500)
 
+;; default to c++-mode when opening header files
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (set-default 'indent-tabs-mode nil)
 (setq-default tab-width 4)

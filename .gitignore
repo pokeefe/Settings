@@ -9,3 +9,6 @@ auto-save-list/
 *.ido.last
 *.recentf
 emacs-settings/.emacs.d/vendor/places
+emacs-settings/.emacs.d/bookmarks
+emacs-settings/.emacs.d/tramp
+emacs-settings/.emacs.d/url/*

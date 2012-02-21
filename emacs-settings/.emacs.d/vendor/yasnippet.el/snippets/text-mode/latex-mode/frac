@@ -1,0 +1,4 @@
+#contributor : Pat O'Keefe
+#name : insert \frac{}{}
+# --
+\frac{$1}{$2}$0

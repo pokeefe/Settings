@@ -14,6 +14,7 @@
 ;; Align your code in a pretty way.
 (global-set-key [(control x)(\\)] 'align-regexp)
 
+(global-set-key [(meta /)] 'comment-dwim)
 
 ;; Use regex searches by default.
 (global-set-key [(control s)] 'isearch-forward-regexp)

@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage{comment}
 \usepackage{epstopdf}
-\usepackage{subfig}
+\usepackage{subfigure}
 \usepackage{extarrows}
 \usepackage{minted}
 \usemintedstyle{vs}
