@@ -12,3 +12,6 @@ emacs-settings/.emacs.d/vendor/places
 emacs-settings/.emacs.d/bookmarks
 emacs-settings/.emacs.d/tramp
 emacs-settings/.emacs.d/url/*
+emacs-settings/.emacs.d/recentf
+emacs-settings/.emacs.d/savehist
+emacs-settings/.emacs.d/saveplace

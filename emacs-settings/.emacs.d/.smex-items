@@ -1,32 +1,32 @@
 
 ;; ----- smex-history -----
 (
- cua-mode
- hippie-expand
- highlight-changes-mode
+ package-list-packages
+ pending-delete-mode
  customize-group
- delete-whitespace-rectangle
- size-indication-mode
- query-replace
+ package-menu-mode
+ flyspell-prog-mode
+ vimgolf
+ cua-mode
 )
 
 ;; ----- smex-data -----
 (
  (idle-highlight-mode . 1)
  (global-hl-line-mode . 1)
- (package-list-packages . 2)
+ (package-list-packages . 7)
  (customize-face . 1)
  (whitespace-mode . 1)
  (recover-this-file . 1)
  (yas/reload-all . 7)
  (nav . 22)
- (cua-mode . 50)
+ (cua-mode . 52)
  (c++-mode . 12)
  (c-mode . 3)
  (revert-buffer . 2)
  (term . 1)
  (nuke-all-buffers . 6)
- (customize-group . 12)
+ (customize-group . 13)
  (occur . 5)
  (eshell . 1)
  (orgtbl-insert-matrix . 3)
@@ -68,4 +68,13 @@
  (delete-whitespace-rectangle . 1)
  (hippie-expand . 11)
  (highlight-changes-mode . 2)
+ (emacs-version . 1)
+ (ns-do-emacs-info-panel . 1)
+ (info-emacs-manual . 1)
+ (replace-regexp . 2)
+ (vimgolf . 5)
+ (flyspell-prog-mode . 1)
+ (package-menu-mode . 2)
+ (autopair-mode . 2)
+ (pending-delete-mode . 2)
 )

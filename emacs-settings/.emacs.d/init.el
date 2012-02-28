@@ -37,7 +37,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(smex ido-ubiquitous idle-highlight-mode autopair expand-region)
+(defvar my-packages '(smex ido-ubiquitous idle-highlight-mode expand-region)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -53,7 +53,7 @@
 ;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(pending-delete-mode t)
+(pending-delete-mode 'nil)
 (setq next-line-add-newlines t)
 (setq scroll-preserve-screen-position t)
 
@@ -112,9 +112,10 @@
 
 
 ;; Sweet autopairing
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/autopair"))
 (require 'autopair)
 (autopair-global-mode)
-
+(setq autopair-autowrap t)
 
 ;; Let's get some real objective-c mode stuff going on here
 (require 'objc-c-mode)
@@ -126,13 +127,6 @@
 (setq yas/indent-line 'auto)
 (setq yas/wrap-around-region 'cua) ;; This isn't really working!
 (yas/load-directory (concat dotfiles-dir "/vendor/yasnippet.el/snippets"))
-
-
-;; Sweet textmate mode
-;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/textmate.el"))
-;; (require 'textmate)
-;; (require 'textmateExtension)
-;; (textmate-mode)
 
 
 ;; need me some linum
@@ -168,7 +162,7 @@
 ;;;  Custom Lisp Inits
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'keyboardBindings)
+
 (require 'customFunctions)
 (require 'miscInit)
 (require 'plainTextAdditions)
@@ -179,6 +173,10 @@
 (require 'latexInit)
 (require 'matlabInit)
 (require 'dired-mod)
+
+(define-comment-line-textmate)
+
+(require 'keyboardBindings)
 
 (set-frame-size-according-to-resolution)
 

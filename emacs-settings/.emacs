@@ -25,6 +25,8 @@
   (setq mac-option-modifier 'alt)
   (add-to-list 'load-path "~/.emacs.d/")
   (load-file "~/.emacs.d/init.el")
+ ; (add-to-list 'load-path "~/Desktop/emacs-prelude/")
+  ;(load-file "~/Desktop/emacs-prelude/init.el")
   (let ((path))
     (setq path (concat "/opt/local/bin:"
                        "/opt/local/sbin:"
