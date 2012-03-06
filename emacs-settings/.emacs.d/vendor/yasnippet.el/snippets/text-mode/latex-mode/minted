@@ -1,6 +1,0 @@
-#contributor : Pat O'Keefe  <patokeefe1@gmail.com>
-#name : Insert Minted Environment
-# --
-{\small \inputminted[linenos,numbersep=5pt,frame=lines,framesep=2mm,fontfamily=tt, mathescape]{matlab}{${2:../problem${1:6}.m}}}
-
-$0

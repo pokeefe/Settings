@@ -1,7 +1,0 @@
-#contributor : Pat O'Keefe  <patokeefe1@gmail.com>
-#name : Insert bibliography
-# --
-\bibliographystyle{plain}
-\bibliography{${1:/Users/pat_okeefe/Dropbox/Self/BibTex_Bib/library.bib}}
-
-$0

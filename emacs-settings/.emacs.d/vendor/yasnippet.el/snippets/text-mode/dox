@@ -1,6 +1,0 @@
-#contributor : Pat O'Keefe
-#name : Small Doxygen Comment
-# --
-/**
- * ${1:Description}
- */

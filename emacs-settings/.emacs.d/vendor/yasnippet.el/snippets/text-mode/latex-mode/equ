@@ -1,6 +1,0 @@
-#contributor : Pat O'Keefe
-#name : Insert numbered equation
-# --
-\begin{equation}
-	$0
-\end{equation}

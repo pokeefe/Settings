@@ -1,6 +1,0 @@
-#contributor : Pat O'Keefe
-#name : Comment Div
-# --
-%${1:$(make-string (-(- fill-column (string-width text)) 6) ?\=)} ${1:Comment}
-
-$0

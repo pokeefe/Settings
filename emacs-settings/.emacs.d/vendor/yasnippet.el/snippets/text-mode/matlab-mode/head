@@ -1,8 +1,0 @@
-#contributor : Pat O'Keefe
-#name : Comment Header
-# --
-%`(make-string (- fill-column 5) ?\=)`
-%${1:$(make-string (- (- fill-column (string-width text)) 5) ?\ )}${1:Comment}
-%`(make-string (- fill-column 5) ?\=)`
-
-$0

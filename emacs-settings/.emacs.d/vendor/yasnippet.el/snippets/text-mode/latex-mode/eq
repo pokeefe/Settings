@@ -1,6 +1,0 @@
-#contributor : Pat O'Keefe
-#name : Insert unnumbered equation
-# --
-\\[
-	$0
-\\]
