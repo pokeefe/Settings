@@ -6,7 +6,6 @@
  '(TeX-PDF-mode t)
  '(TeX-view-program-list (quote (("open" ""))) t)
  '(TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "xdvi") (output-pdf "Evince") (output-html "xdg-open"))) t)
- '(blink-cursor-mode nil)
  '(c-basic-offset 4)
  '(cc-other-file-alist (quote (("\\.cc\\'" (".hh" ".h")) ("\\.hh\\'" (".cc" ".C")) ("\\.m\\'" (".h")) ("\\.c\\'" (".h")) ("\\.h\\'" (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".m")) ("\\.C\\'" (".H" ".hh" ".h")) ("\\.H\\'" (".C" ".CC")) ("\\.CC\\'" (".HH" ".H" ".hh" ".h")) ("\\.HH\\'" (".CC")) ("\\.c\\+\\+\\'" (".h++" ".hh" ".h")) ("\\.h\\+\\+\\'" (".c++")) ("\\.cpp\\'" (".hpp" ".hh" ".h")) ("\\.hpp\\'" (".cpp")) ("\\.cxx\\'" (".hxx" ".hh" ".h")) ("\\.hxx\\'" (".cxx")))))
  '(cua-enable-cua-keys nil)
@@ -16,7 +15,6 @@
  '(ido-enable-tramp-completion nil)
  '(ido-ignore-directories (quote ("\\`CVS/" "\\`\\.\\./" "\\`\\./" "\\`auto/" "\\\\.prv/")))
  '(ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" "_region_" "\\\\.prv/" "\\`auto/" "\\.DS_Store" "_flymake\\." "\\.pyg" "\\.synctex\\.gz")))
- '(javascript-indent-level 2)
  '(matlab-use-eei nil)
  '(org-agenda-files (quote ("~/Dropbox/Org/gtd.org" "~/Dropbox/Org/inbox.org")))
  '(org-capture-templates (quote (("t" "Todo" entry (file+headline "~/Dropbox/Org/inbox.org" "Inbox") "* TODO %?
@@ -34,10 +32,6 @@
  '(preview-auto-reveal t)
  '(preview-gs-command "/usr/local/bin/gs")
  '(reb-re-syntax (quote string))
- '(recentf-auto-cleanup (quote never))
- '(recentf-max-menu-items 50)
- '(recentf-max-saved-items 50)
- '(recentf-save-file "~/.emacs.d/.recentf")
  '(show-paren-mode t)
  '(user-mail-address "patokeefe1@gmail.com"))
 (custom-set-faces

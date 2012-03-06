@@ -1,0 +1,6 @@
+#contributor : Pat O'Keefe
+#name : \section*{}
+# --
+\section*{${1:section name}}
+\label{sec:${1:$(downcase (replace-regexp-in-string "[ ()?!+&]?" "" text))}}
+$0

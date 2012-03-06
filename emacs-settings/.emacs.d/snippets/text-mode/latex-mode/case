@@ -1,0 +1,7 @@
+#contributor : Pat O'Keefe
+#name : insert cases environment
+# --
+\begin{cases}
+	${1:equation}, &\text{ if }${2:case}\\\\
+	$0
+\end{cases}

@@ -1,0 +1,11 @@
+#contributor : Pat OKeefe
+#name : Reformat region as matrix
+#bindingDONT: "M-C-:"
+# --
+
+\begin{${1:p/b/v/V/B/small}matrix}
+	`(my-delete-leading-whitespace)`
+   `(replace-regexp-in-string "[ ]+" "&" yas/selected-text)`
+\end{$1matrix}
+
+$0

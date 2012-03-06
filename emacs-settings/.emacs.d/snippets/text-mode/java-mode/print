@@ -1,0 +1,5 @@
+#contributor : Pat O'Keefe
+#name : Java Print Statement
+# --
+System.out.println("$1");
+$0

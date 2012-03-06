@@ -1,0 +1,6 @@
+#contributor : Pat O'Keefe
+#name : \subsection*{}
+# --
+\subsection*{${1:subsection name}}
+\label{sub:${1:$(downcase (replace-regexp-in-string "[ ()?!+&]?" "" text))}}
+$0
