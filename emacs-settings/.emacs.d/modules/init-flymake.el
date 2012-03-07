@@ -17,13 +17,13 @@
 
 ;; LaTeX: Enable flymake for texlive distribution of LaTeX
 (defun flymake-get-tex-args (file-name)
-  (list "/usr/texbin/pdflatex" (list "-shell-escape"
-                                     "-file-line-error"
-                                     "-draftmode"
-                                     "-interaction=nonstopmode"
-                                     "-output-directory"
-                                     temporary-file-directory
-                                     file-name)))
+  (list "pdflatex" (list "-shell-escape"
+                         "-file-line-error"
+                         "-draftmode"
+                         "-interaction=nonstopmode"
+                         "-output-directory"
+                         temporary-file-directory
+                         file-name)))
 
 
 (defun flymake-create-temp-intemp (file-name prefix)
@@ -59,8 +59,8 @@ makes)."
 (defun flymake-master-tex-init ()
   (let* ((temp-master-file-name (flymake-init-create-temp-source-and-master-buffer-copy
                                  'flymake-get-include-dirs-dot 'flymake-create-temp-intemp
-                 '("\\.tex\\'")
-                 "[ \t]*\\input[ \t]*{\\(.*%s\\)}")))
+                                 '("\\.tex\\'")
+                                 "[ \t]*\\input[ \t]*{\\(.*%s\\)}")))
     (when temp-master-file-name
       (flymake-get-tex-args temp-master-file-name))))
 
