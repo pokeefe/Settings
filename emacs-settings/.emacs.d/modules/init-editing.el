@@ -193,7 +193,7 @@
 (setq yas/wrap-around-region 'cua) ;; This isn't really working!
 (yas/load-directory (concat user-emacs-directory "snippets"))
 
-;; Sweet autopairing
+;; Sweet auto pairing
 (require 'autopair)
 (autopair-global-mode)
 (setq autopair-autowrap t)

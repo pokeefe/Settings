@@ -84,11 +84,6 @@ file of a buffer in an external program."
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
 
-(defun recompile-init ()
-  "Byte-compile all your dotfiles again."
-  (interactive)
-  (byte-recompile-directory prelude-dir 0)
-  (byte-recompile-directory prelude-vendor-dir 0))
 
 (defun regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."

@@ -1,6 +1,9 @@
 ;;
 ;; Where it all starts
 ;;
+;; My init, like most I've seen, is a giant mashup of things I've found on the Internets.
+;; Check out the emacs-starter-kit and emacs-prelude for more inspiration.
+;;
 
 (require 'cl)
 
