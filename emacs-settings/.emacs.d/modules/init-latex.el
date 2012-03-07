@@ -11,6 +11,9 @@
 (load "preview-latex.el" nil t t)
 (setq preview-auto-cache-preamble nil)
 
+;; need to do this now so that the tex-args are applied.
+(require 'flymake)
+
 ;; LaTeX: Enable flymake for texlive distribution of LaTeX
 (defun flymake-get-tex-args (file-name)
   (list "/usr/texbin/pdflatex" (list "-shell-escape" "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
