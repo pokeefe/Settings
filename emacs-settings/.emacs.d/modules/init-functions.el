@@ -31,6 +31,12 @@ file of a buffer in an external program."
                     buffer-file-name))))
 
 
+(defun open-parent-directory-in-finder ()
+  "Opens the enclosing directory of the buffer's current file in Finder.
+This is certainly not cross platform right now."
+  (interactive)
+  (shell-command "open ."))
+
 (defun copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
   (interactive)

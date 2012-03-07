@@ -8,15 +8,11 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
+;; I don't really need the local style file support
+(setq TeX-auto-local nil)
+
 (load "preview-latex.el" nil t t)
 (setq preview-auto-cache-preamble nil)
-
-;; need to do this now so that the tex-args are applied.
-(require 'flymake)
-
-;; LaTeX: Enable flymake for texlive distribution of LaTeX
-(defun flymake-get-tex-args (file-name)
-  (list "/usr/texbin/pdflatex" (list "-shell-escape" "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
 
 
 ;; apply LaTeX hooks (spellcheck, etc.)
@@ -88,9 +84,6 @@ table, obtained by prompting the user."
 ;; assist syncTeX
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (setq TeX-source-correlate-method 'synctex)
-
-;; when over a flymake error, relevant information is displayed in the mini-buffer
-(require 'flymake-cursor)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LaTeX Mac OS X Specific Init
