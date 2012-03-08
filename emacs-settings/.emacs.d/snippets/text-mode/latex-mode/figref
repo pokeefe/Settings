@@ -1,0 +1,4 @@
+#contributor : Pat O'Keefe
+#name : insert figure reference
+# --
+Figure~\ref{$1} $0

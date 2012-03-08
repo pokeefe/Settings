@@ -99,5 +99,7 @@
 (require 'color-theme)
 (load-file "~/.emacs.d/themes/naquadah-theme.el")
 
+;; (load-theme 'tango-2 t)
+
 
 (provide 'init-ui)

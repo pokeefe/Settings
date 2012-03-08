@@ -8,8 +8,10 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
-;; I don't really need the local style file support
-(setq TeX-auto-local nil)
+;; I want this to work, but I keep getting this weird error:
+;; ``File mode specification error: (wrong-type-argument stringp nil)''
+;; ;; I don't really need the local style file support
+;; (setq TeX-auto-local nil)
 
 (load "preview-latex.el" nil t t)
 (setq preview-auto-cache-preamble nil)
