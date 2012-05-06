@@ -24,8 +24,9 @@
                              (turn-on-auto-fill)
                              (setq latex-mode-map LaTeX-mode-map)
                              (yas/reload-all)
+                             ;; (flymake-mode)
                              (orgtbl-mode)
-                             (flymake-mode)))
+                             ))
 
 
 (defun orgtbl-to-latex-matrix (table params)

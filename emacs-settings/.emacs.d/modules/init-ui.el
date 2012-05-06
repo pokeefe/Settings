@@ -61,7 +61,7 @@
 ;; nice scrolling
 (setq scroll-margin 0
       scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
+      scroll-preserve-screen-position t)
 
 
 ;; Smooth-scrolling mode. Thanks Paul.

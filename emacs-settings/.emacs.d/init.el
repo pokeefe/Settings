@@ -57,7 +57,7 @@ ELPA (or Marmalade).")
 (set-frame-size-according-to-resolution)
 
 (open-filelist '("~/.emacs.d/init.el"
-                 "~/Dropbox/Org/gtd.org"))
+                 "~/Google Drive/Org/gtd.org"))
 
 (switch-to-buffer "gtd.org")
 

@@ -14,3 +14,4 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 (load-file "~/.emacs.d/init.el")
+(put 'set-goal-column 'disabled nil)

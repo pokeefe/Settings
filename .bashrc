@@ -78,5 +78,5 @@ alias java='java -ea -server'
 
 # export CLASSPATH=/Users/patokeefe/Downloads/eecs568/java/april.jar
 # export CLASSPATH=/Users/patokeefe/Downloads/eecs568/java/lcm.jar:$CLASSPATH
-# export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/Graduate/568-ps1-ps2/java/jni:$DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=/Users/patokeefe/Projects/Archived/Graduate/568-ps1-ps2/java/jni:$DYLD_LIBRARY_PATH
 # export DYLD_LIBRARY_PATH=/Users/patokeefe/Downloads/eecs568/java/jni:$DYLD_LIBRARY_PATH

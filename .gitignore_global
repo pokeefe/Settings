@@ -39,3 +39,17 @@ Thumbs.db
 #############################
 project.xcworkspace/
 xcuserdata/
+
+# LaTeX Junk #
+##############
+*.prv
+*.pyg
+*_region_*
+*__flymake*
+*.aux
+*.pyg
+*.pdf
+*.#*
+*/submission/auto/
+*_flymake*
+*synctex*

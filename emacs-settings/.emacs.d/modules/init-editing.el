@@ -93,14 +93,14 @@
 (setq show-paren-style 'parenthesis)
 
 ;; highlight the current line
-(global-hl-line-mode t)
+;; (global-hl-line-mode t)
 
 ;; I work in camelCase all the time
 (global-subword-mode t)
 
 
-(require 'volatile-highlights)
-(volatile-highlights-mode t)
+;; (require 'volatile-highlights)
+;; (volatile-highlights-mode t)
 
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
@@ -196,7 +196,11 @@
 ;; Sweet auto pairing
 (require 'autopair)
 (autopair-global-mode)
-(setq autopair-autowrap t)
+;; (setq autopair-autowrap t)
+(add-hook 'calc-mode-hook (lambda () (setq autopair-dont-activate t)))
+;; (add-hook 'minibuffer-inactive-mode-hook (lambda () (setq autopair-dont-activate t)
+;;                                            (local-unset-key (kbd "RET"))
+;;                                            (local-set-key (kbd "RET") calcDigit-nondigit)))
 
 
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)

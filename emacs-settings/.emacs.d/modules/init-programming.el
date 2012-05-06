@@ -73,9 +73,9 @@
   (column-number-mode t))
 
 
-(defun turn-on-hl-line-mode ()
-  (when (> (display-color-cells) 8)
-    (hl-line-mode t)))
+;; (defun turn-on-hl-line-mode ()
+;;   (when (> (display-color-cells) 8)
+;;     (hl-line-mode t)))
 
 
 (defun turn-on-whitespace-mode ()
@@ -104,13 +104,14 @@
   (flyspell-prog-mode)
   (turn-on-local-comment-auto-fill)
   (turn-on-whitespace-mode)
-  (turn-on-hl-line-mode)
+  ;; (turn-on-hl-line-mode)
   (turn-on-whitespace-mode)
-  (turn-on-idle-highlight-mode)
+  ;; (turn-on-idle-highlight-mode)
   (pretty-lambdas)
   (add-watchwords)
   ;; keep the whitespace decent all the time (in this buffer)
-  (add-hook 'before-save-hook 'whitespace-cleanup nil t))
+  ;;(add-hook 'before-save-hook 'whitespace-cleanup nil t)
+  )
 
 
 (add-hook 'prog-mode-hook (lambda () (prog-mode-defaults)))

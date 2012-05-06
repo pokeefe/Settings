@@ -6,7 +6,7 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(setq org-directory "~/Dropbox/Org")
+(setq org-directory "~/Google Drive/Org")
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (global-set-key "\C-cl" 'org-store-link)
@@ -20,7 +20,7 @@
 ;; depending on context.
 (add-hook 'org-mode-hook
           (lambda()
-            (hl-line-mode t)
+            ;; (hl-line-mode t)
             (define-key org-mode-map [(control c)(control d)] 'mark-as-done-and-archive)
             ))
 
@@ -123,7 +123,7 @@
   (org-archive-subtree-default))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; LaTeX Mac OS X Specific Init
+;; Org Mac OS X Specific Init
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (when (string-equal system-type "darwin")
