@@ -13,6 +13,8 @@
 (setq-default tab-width 8)            ;; but maintain correct appearance
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+(setq c-default-style "linux"
+      c-basic-offset 4)
 
 ;; delete the selection with a keypress
 (delete-selection-mode t)

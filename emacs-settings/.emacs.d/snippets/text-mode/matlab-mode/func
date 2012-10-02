@@ -1,0 +1,8 @@
+#contributor : Pat O'Keefe  <patokeefe1@gmail.com>
+#name : Function declaration
+# --
+function $1 = ${2:functionName}(${3:functionArgs})
+% $2 -- ${4:Short description}
+%
+% $0
+%

@@ -1,7 +1,5 @@
 [user]
-	name = Pat O'Keefe
+	name = Patrick O'Keefe
 	email = pat@occipital.com
 [core]
-	autocrlf = input
-	safecrlf = true
 	excludesfile = /Users/patokeefe/.gitignore_global

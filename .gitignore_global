@@ -53,3 +53,14 @@ xcuserdata/
 */submission/auto/
 *_flymake*
 *synctex*
+
+
+*/build/
+*.eps
+*.png
+*.jpg
+*.mat
+*.txt
+*.MOV
+*.fig
+*.bin

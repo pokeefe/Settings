@@ -57,9 +57,13 @@ ELPA (or Marmalade).")
 (set-frame-size-according-to-resolution)
 
 (open-filelist '("~/.emacs.d/init.el"
-                 "~/Google Drive/Org/gtd.org"))
+                 "~/Google Drive/Org/gtd.org"
+                 "~/Google Drive/Org/occipital.org"))
 
 (switch-to-buffer "gtd.org")
+(split-window-below)
+(other-window 1)
+(switch-to-buffer "occipital.org")
 
 ;; Benchmarking
 (message "My .emacs loaded in %ds"

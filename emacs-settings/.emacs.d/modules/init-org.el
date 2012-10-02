@@ -110,6 +110,12 @@
   )
 (global-set-key (kbd "C-c g") 'gtd)
 
+(defun occipitalGtd ()
+  (interactive)
+  (find-file (concat org-directory "/occipital.org"))
+  )
+(global-set-key (kbd "C-c o") 'occipitalGtd)
+
 (defun inbox()
   (interactive)
   (find-file (concat org-directory "/inbox.org"))

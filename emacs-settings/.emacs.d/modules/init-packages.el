@@ -23,6 +23,7 @@
                       volatile-highlights
                       zenburn-theme
                       color-theme
+                      cmake-mode
                       yasnippet)
   "A list of packages that will be installed at launch (if missing).")
 

@@ -4,6 +4,7 @@
 
 (require 'imenu)
 
+
 (defun ido-goto-symbol (&optional symbol-list)
   "Refresh imenu and jump to a place in the buffer using Ido."
   (interactive)
@@ -57,6 +58,7 @@
 (require 'which-func)
 (which-func-mode 1)
 
+(require 'cmake-mode)
 
 ;; ;; We have a number of turn-on-* functions since it's advised that lambda
 ;; ;; functions not go in hooks. Repeatedly evaluating an add-to-list with a
@@ -101,7 +103,7 @@
 
 (defun prog-mode-defaults ()
   "Default coding hook, useful with any programming language."
-  (flyspell-prog-mode)
+  ;; (flyspell-prog-mode)
   (turn-on-local-comment-auto-fill)
   (turn-on-whitespace-mode)
   ;; (turn-on-hl-line-mode)

@@ -20,7 +20,19 @@
   (if (>= emacs-major-version 23)
       (set-frame-font "Menlo-12")))
 
+;; Also make function calls highlighted
+(font-lock-add-keywords 'c-mode
+  '(("\\s\"?\\(\\(\\sw\\|\\s_\\)+\\(<-\\)?\\)\\s\"?*\\s-*("
+    (1 font-lock-function-name-face)))  t)
 
+(font-lock-add-keywords 'c++-mode
+  '(("\\s\"?\\(\\(\\sw\\|\\s_\\)+\\(<-\\)?\\)\\s\"?*\\s-*("
+    (1 font-lock-function-name-face)))  t)
+
+;; And for python-mode too...
+(font-lock-add-keywords 'python-mode
+  '(("\\s\"?\\(\\(\\sw\\|\\s_\\)+\\(<-\\)?\\)\\s\"?*\\s-*("
+    (1 font-lock-function-name-face)))  t)
 
 ;; the menu bar is mostly useless as well
 ;; but removing it under OS X doesn't make much sense
@@ -97,7 +109,9 @@
 
 ;; Or this modified tango tango theme
 (require 'color-theme)
+(load-file "~/.emacs.d/themes/color-theme-tomorrow.el")
 (load-file "~/.emacs.d/themes/naquadah-theme.el")
+(color-theme-tomorrow-night)
 
 ;; (load-theme 'tango-2 t)
 

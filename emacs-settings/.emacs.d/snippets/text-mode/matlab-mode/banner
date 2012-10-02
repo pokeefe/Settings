@@ -1,0 +1,8 @@
+#contributor : Pat O'Keefe
+#name : Comment Banner
+# --
+%${1:$(make-string (+ (string-width text) 1) ?=)}
+% ${1:Comment}
+%${1:$(make-string (+ (string-width text) 1) ?=)}
+
+$0
